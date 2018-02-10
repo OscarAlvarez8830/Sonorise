@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentUser } from '../reducers/session_reducer';
