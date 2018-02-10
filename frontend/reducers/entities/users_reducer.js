@@ -14,3 +14,5 @@ export default (state = {}, action) => {
     return state;
   }
 };
+
+export const getUserById = (state, id) => state.entities.users[id];

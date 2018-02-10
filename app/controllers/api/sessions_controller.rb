@@ -21,7 +21,7 @@ class Api::SessionsController < ApplicationController
 
   private
   def ensure_current_user
-    if logged_in?
+    unless logged_in?
       render json: ['Unable to complete request'], status: 422
     end
   end

@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from './util/route_util';
 import LandingPage from './components/landing/landing_page';
 import LoginForm from './components/session_forms/login_form_container';
 import SignupForm from './components/session_forms/signup_form_container';
+import Main from './components/main_content/main';
 
 import configureStore from './store/store';
 
@@ -15,9 +16,10 @@ const Root = ({ store }) => {
       <HashRouter>
         <div>
           <Switch>
-            <AuthRoute path="/login" component={LoginForm} />
-            <AuthRoute path="/sign-up" component={SignupForm} />
-            <AuthRoute path="/" exact={true} component={LandingPage} />
+            <AuthRoute path="/login" component={ LoginForm } />
+            <AuthRoute path="/sign-up" component={ SignupForm } />
+            <AuthRoute path="/" exact={ true } component={ LandingPage } />
+            <ProtectedRoute path="/" component={ Main } />
           </Switch>
         </div>
       </HashRouter>
