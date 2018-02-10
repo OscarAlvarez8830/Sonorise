@@ -7,6 +7,10 @@ export default class SessionForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  errorStyling(field) {
+    return this.props.errors[field] ? ' SessionForm__input--error' : '';
+  }
+
   renderErrors(field) {
     if (this.props.errors[field]) {
       return (
@@ -29,6 +33,7 @@ export default class SessionForm extends Component {
         <fieldset className="SessionForm__fieldset">
           <input
             type="text"
+            className={`SessionForm__input${this.errorStyling('username')}`}
             onChange={ this.update('username') }
             placeholder="What should we call you?"
             value={ this.state.username } />
@@ -53,7 +58,7 @@ export default class SessionForm extends Component {
           <fieldset className="SessionForm__fieldset">
             <input
               type="text"
-              className="SessionForm__input"
+              className={`SessionForm__input${this.errorStyling('email')}`}
               onChange={ this.update('email') }
               placeholder="Email"
               value={ this.state.email } />
@@ -66,7 +71,7 @@ export default class SessionForm extends Component {
           <fieldset className="SessionForm__fieldset">
             <input
               type="password"
-              className="SessionForm__input"
+              className={`SessionForm__input${this.errorStyling('password')}`}
               onChange={ this.update('password') }
               placeholder="Password"
               value={ this.state.password } />
