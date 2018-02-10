@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
     store = configureStore({
-      session: window.currentUser.id,
+      session: { currentUser: window.currentUser.id },
       users: { [window.currentUser.id]: window.currentUser },
     });
     delete window.currentUser;
