@@ -10,14 +10,16 @@ const Sidebar = ({ currentUser, logout }) => {
     <nav className="Sidebar">
       <ul className="Sidebar__ul">
         <li className="Sidebar__li">
-          <Link to="/browse" className="Sidebar__link">Home</Link>
+          <Link to="/browse" className="Sidebar__link--nav">Home</Link>
         </li>
         <li className="Sidebar__li">
-          <Link to="/collection" className="Sidebar__link">Your Music</Link>
+          <Link to="/collection" className="Sidebar__link--nav">Your Music</Link>
         </li>
       </ul>
-
-      <Link to="/account">{ currentUser.username }</Link>
+      <section className="Sidebar__section">
+        <img src="" alt="user-photo" className="Sidebar__img" />
+        <Link to="/account">{ currentUser.username }</Link>
+      </section>
     </nav>
   );
 };
