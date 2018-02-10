@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class SessionForm extends Component {
   constructor(props) {
     super(props);
-    this.state = props.initialState;
+    this.state = Object.assign({}, props.initialState);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -11,7 +11,7 @@ export default class SessionForm extends Component {
     if (this.props.errors[field]) {
       return (
         <aside className="SessionForm__aside">
-          { `${field} ${this.props.errors[field]}` }
+          { `${this.props.errors[field]}` }
         </aside>
       );
     }
@@ -46,36 +46,40 @@ export default class SessionForm extends Component {
 
   render() {
     return (
-      <form className="SessionForm" onSubmit={ this.handleSubmit }>
+      <main className="SessionForm">
+        <header className="SessionForm__header">Sonorise</header>
+        <form className="SessionForm__form" onSubmit={ this.handleSubmit }>
+          { this.renderErrors('base') }
+          <fieldset className="SessionForm__fieldset">
+            <input
+              type="text"
+              className="SessionForm__input"
+              onChange={ this.update('email') }
+              placeholder="Email"
+              value={ this.state.email } />
 
-        <fieldset className="SessionForm__fieldset">
-          <input
-            type="text"
-            className="SessionForm__input"
-            onChange={ this.update('email') }
-            placeholder="Email"
-            value={ this.state.email } />
+            { this.renderErrors('email') }
+          </fieldset>
 
-          { this.renderErrors('email') }
-        </fieldset>
+          { this.usernameField() }
 
-        { this.usernameField() }
+          <fieldset className="SessionForm__fieldset">
+            <input
+              type="password"
+              className="SessionForm__input"
+              onChange={ this.update('password') }
+              placeholder="Password"
+              value={ this.state.password } />
 
-        <fieldset className="SessionForm__fieldset">
-          <input
-            type="password"
-            className="SessionForm__input"
-            onChange={ this.update('password') }
-            placeholder="Password"
-            value={ this.state.password } />
+            { this.renderErrors('password') }
+          </fieldset>
 
-          { this.renderErrors('password') }
-        </fieldset>
-
-        <button className="SessionForm__button">
-          { this.props.submitText }
-        </button>
-      </form>
+          <button className="SessionForm__button">
+            { this.props.submitText }
+          </button>
+        </form>
+        { this.props.navLink }
+      </main>
     );
   }
 }

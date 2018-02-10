@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { signup } from '../../actions/session_actions';
 import { getErrors } from '../../reducers/ui/errors_reducer';
 import SessionForm from './session_form';
@@ -19,12 +20,18 @@ const mapDispatchToProps = dispatch => {
 const SignupForm = props => {
   const { errors, submit } = props;
   const initialState = { email: '', username: '', password: '' };
+  const navLink = (
+    <section className="SessionForm__section">
+      <span className="SessionForm__span">Already an account?</span><Link to="login" className="SessionForm__link">Log in</Link>
+    </section>
+  );
   return (
     <SessionForm
       errors={ errors }
       initialState={ initialState }
+      navLink={ navLink }
       submit={ submit }
-      submitText="Sign Up" />
+      submitText="Sign up" />
   );
 };
 

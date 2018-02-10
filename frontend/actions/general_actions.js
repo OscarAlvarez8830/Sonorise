@@ -1,4 +1,5 @@
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const receiveErrors = errors => {
   return {
@@ -7,9 +8,16 @@ export const receiveErrors = errors => {
   };
 };
 
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS,
+  };
+};
+
 export const thunkAction = (ajaxFunc, successCallback) => {
   return arg => dispatch => {
     return ajaxFunc(arg).then(response => {
+      dispatch(clearErrors());
       return dispatch(successCallback(response));
     }, err => {
       return dispatch(receiveErrors(err));
