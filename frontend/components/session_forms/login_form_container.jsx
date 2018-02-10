@@ -15,12 +15,12 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     submit: user => dispatch(login(user)),
+    login: user => dispatch(login(user)),
     clearErrors: () => dispatch(clearErrors()),
   };
 };
 
-const LoginForm = props => {
-  const { clearErrors, errors, submit } = props;
+const LoginForm = ({ clearErrors, errors, login, submit }) => {
   const initialState = { email: '', password: '' };
   const navLink = (
     <section className="SessionForm__section">
@@ -37,6 +37,7 @@ const LoginForm = props => {
     <SessionForm
       errors={ errors }
       initialState={ initialState }
+      login={ login }
       navLink={ navLink }
       submit={ submit }
       submitText="Log in" />

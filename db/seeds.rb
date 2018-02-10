@@ -4,3 +4,9 @@ user1 = User.create!(
   username: 'Oscar',
   password: 'password'
 )
+
+guest = User.create!(
+  email: 'guest@gmail.com',
+  username: 'Guest',
+  password: 'password'
+)

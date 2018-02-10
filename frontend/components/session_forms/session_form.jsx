@@ -11,6 +11,25 @@ export default class SessionForm extends Component {
     return this.props.errors[field] ? ' SessionForm__input--error' : '';
   }
 
+  guestLogin() {
+    const guest = { email: 'guest@gmail.com', password: 'password' };
+    const clickHandler = e => {
+      e.stopPropagation();
+      this.props.login({ email: 'guest@gmail.com', password: 'password' });
+    }
+    return (
+      <button className="SessionForm__button" onClick={ clickHandler }>
+        Log in as Guest
+      </button>
+    );
+  }
+
+  handleSubmit(e) {
+    debugger
+    e.preventDefault();
+    this.props.submit(Object.assign({}, this.state));
+  }
+
   renderErrors(field) {
     if (this.props.errors[field]) {
       return (
@@ -42,11 +61,6 @@ export default class SessionForm extends Component {
         </fieldset>
       );
     }
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.submit(Object.assign({}, this.state));
   }
 
   render() {
@@ -83,6 +97,7 @@ export default class SessionForm extends Component {
             { this.props.submitText }
           </button>
         </form>
+        { this.guestLogin() }
         { this.props.navLink }
       </main>
     );

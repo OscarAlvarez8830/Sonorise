@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signup } from '../../actions/session_actions';
+import { signup, login } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/general_actions';
 import { getErrors } from '../../reducers/ui/errors_reducer';
 import SessionForm from './session_form';
@@ -16,11 +16,11 @@ const mapDispatchToProps = dispatch => {
   return {
     submit: user => dispatch(signup(user)),
     clearErrors: () => dispatch(clearErrors()),
+    login: user => dispatch(login(user)),
   };
 };
 
-const SignupForm = props => {
-  const { clearErrors, errors, submit } = props;
+const SignupForm = ({ clearErrors, errors, login, submit }) => {
   const initialState = { email: '', username: '', password: '' };
   const navLink = (
     <section className="SessionForm__section">
@@ -37,6 +37,7 @@ const SignupForm = props => {
     <SessionForm
       errors={ errors }
       initialState={ initialState }
+      login={ login }
       navLink={ navLink }
       submit={ submit }
       submitText="Sign up" />

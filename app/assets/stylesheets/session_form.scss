@@ -15,7 +15,7 @@
 }
 
 .SessionForm__form {
-  margin: 2%;
+  margin: 2% 0 1% 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,4 +61,8 @@
 
 .SessionForm__link {
   color: #1db954;
+}
+
+.SessionForm__section {
+  margin-top: 1%;
 }
