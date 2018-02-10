@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import { getCurrentUser } from '../../reducers/session_reducer';
 import { getUserById } from '../../reducers/entities/users_reducer';
 import { logout } from '../../actions/session_actions';
@@ -10,10 +10,20 @@ const Sidebar = ({ currentUser, logout }) => {
     <nav className="Sidebar">
       <ul className="Sidebar__ul">
         <li className="Sidebar__li">
-          <Link to="/browse" className="Sidebar__link--nav">Home</Link>
+          <NavLink
+            to="/browse"
+            className="Sidebar__link--nav"
+            activeClassName="Sidebar__link--nav--active">
+            Home
+          </NavLink>
         </li>
         <li className="Sidebar__li">
-          <Link to="/collection" className="Sidebar__link--nav">Your Music</Link>
+          <NavLink
+            to="/collection"
+            className="Sidebar__link--nav"
+            activeClassName="Sidebar__link--nav--active">
+            Your Music
+          </NavLink>
         </li>
       </ul>
       <section className="Sidebar__section">
@@ -30,4 +40,4 @@ const mapStateToProps = state => {
   return { currentUser };
 };
 
-export default connect(mapStateToProps)(Sidebar);
+export default withRouter(connect(mapStateToProps)(Sidebar));
