@@ -1,14 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util';
 import Sidebar from './sidebar';
 import YourMusic from './collection_container';
 import Home from './home_container';
 import Account from './account_container';
+import { getModal } from 'reducers/ui/modal_reducer';
 
-export default props => {
+const Main = ({ modal }) => {
   return (
     <main className="Main">
+      { modal }
       <Sidebar />
       <section className="Main__section">
         <Switch>
@@ -20,3 +23,11 @@ export default props => {
     </main>
   );
 };
+
+const mapStateToProps = state => {
+  return {
+    modal: getModal(state),
+  };
+};
+
+export default connect(mapStateToProps)(Main);
