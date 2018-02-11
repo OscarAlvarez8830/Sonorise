@@ -1,0 +1,37 @@
+.PlaylistIndex {
+  
+}
+
+.PlaylistIndex__h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 80px 0 20px 0;
+}
+
+.PlaylistIndex__ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.PlaylistIndexItem {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 8px 28px 8px;
+}
+
+.PlaylistIndexItem__img {
+  display: block;
+  height: 190px;
+  width: 190px;
+  margin-bottom: 10px;
+}
+
+.PlaylistIndexItem__span {
+  width: 170px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
