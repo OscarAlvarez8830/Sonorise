@@ -15,8 +15,8 @@ export const clearErrors = () => {
 };
 
 export const thunkAction = (ajaxFunc, successCallback) => {
-  return arg => dispatch => {
-    return ajaxFunc(arg).then(response => {
+  return (...args) => dispatch => {
+    return ajaxFunc(...args).then(response => {
       dispatch(clearErrors());
       return dispatch(successCallback(response));
     }, err => {
