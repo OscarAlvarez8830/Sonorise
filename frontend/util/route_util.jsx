@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getCurrentUser } from '../reducers/session_reducer';
+import { getCurrentUser } from 'reducers/session_reducer';
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={ path } exact={ exact } render={ props => {

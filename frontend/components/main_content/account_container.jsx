@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getCurrentUser } from '../../reducers/session_reducer';
-import { getUserById } from '../../reducers/entities/users_reducer';
-import { logout } from '../../actions/session_actions';
+import { getCurrentUser } from 'reducers/session_reducer';
+import { getUserById } from 'reducers/entities/users_reducer';
+import { logout } from 'actions/session_actions';
 
 const Account = ({ currentUser, logout }) => {
   return (

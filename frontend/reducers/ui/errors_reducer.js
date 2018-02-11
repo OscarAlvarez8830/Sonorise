@@ -1,4 +1,4 @@
-import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../../actions/general_actions';
+import { RECEIVE_ERRORS, CLEAR_ERRORS } from 'actions/general_actions';
 
 export default (state = {}, action) => {
   switch (action.type) {

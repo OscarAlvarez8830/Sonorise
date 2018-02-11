@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from './util/route_util';
-import LandingPage from './components/landing/landing_page';
-import LoginForm from './components/session_forms/login_form_container';
-import SignupForm from './components/session_forms/signup_form_container';
-import Main from './components/main_content/main';
+import { AuthRoute, ProtectedRoute } from 'util/route_util';
+import LandingPage from 'components/landing/landing_page';
+import LoginForm from 'components/session_forms/login_form_container';
+import SignupForm from 'components/session_forms/signup_form_container';
+import Main from 'components/main_content/main';
 
 import configureStore from './store/store';
 

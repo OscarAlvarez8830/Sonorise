@@ -1,4 +1,4 @@
-import * as PlaylistAPIUtil from '../util/playlist_api_util';
+import * as PlaylistAPIUtil from 'util/playlist_api_util';
 import { thunkAction } from './general_actions';
 
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';

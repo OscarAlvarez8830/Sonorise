@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER, LOGOUT } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, LOGOUT } from 'actions/session_actions';
 
 const defaultState = {
   currentUser: null,
