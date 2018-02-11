@@ -27,8 +27,15 @@ const Sidebar = ({ currentUser, logout }) => {
         </li>
       </ul>
       <section className="Sidebar__section">
-        <img src="" alt="user-photo" className="Sidebar__img" />
-        <Link to="/account">{ currentUser.username }</Link>
+        <img
+          src={ currentUser.avatarThumb }
+          alt="user-photo"
+          className="Sidebar__img" />
+        <Link
+          to="/account"
+          className="Sidebar__link--username">
+          { currentUser.username }
+        </Link>
       </section>
     </nav>
   );

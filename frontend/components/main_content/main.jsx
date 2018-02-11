@@ -10,11 +10,13 @@ export default props => {
   return (
     <main className="Main">
       <Sidebar />
-      <Switch>
-        <ProtectedRoute path="/browse" component={ Home } />
-        <ProtectedRoute path="/collection" component={ YourMusic } />
-        <ProtectedRoute path="/account" component={ Account } />
-      </Switch>
+      <section className="Main__section">
+        <Switch>
+          <ProtectedRoute path="/browse" component={ Home } />
+          <ProtectedRoute path="/collection" component={ YourMusic } />
+          <ProtectedRoute path="/account" component={ Account } />
+        </Switch>
+      </section>
     </main>
   );
 };

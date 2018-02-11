@@ -13,6 +13,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_attached_file :avatar,
+    styles: { medium: "200x200>", thumb: "50x50>" }, 
+    default_url: 'default-user-avatar.png'
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
   def self.find_by_email_and_pass(email, password)
     user = User.find_by(email: email)
     user && user.password_match?(password) ? user : nil

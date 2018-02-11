@@ -1,11 +1,11 @@
 .Sidebar {
   width: calc(21% - 40px);
   height: calc(100vh - 40px);
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+  background: rgba(0,0,0,0.5);
 }
 
 .Sidebar__ul {
@@ -17,7 +17,12 @@
 }
 
 .Sidebar__link--username {
+  position: absolute;
+  top: 25%;
+}
 
+.Sidebar__section {
+  position: relative;
 }
 
 .Sidebar__link--nav {
@@ -27,4 +32,11 @@
 
 .Sidebar__link--nav--active {
   color: #1db954;
+}
+
+.Sidebar__img {
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 15px;
 }
