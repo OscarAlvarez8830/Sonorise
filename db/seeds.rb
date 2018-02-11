@@ -31,3 +31,32 @@ playlist4 = Playlist.create!(
   title: 'Fourth Playlist',
   user_id: guest.id
 )
+playlist5 = Playlist.create!(
+  title: 'Fifth Playlist',
+  user_id: guest.id
+)
+
+playlist6 = Playlist.create!(
+  title: 'Sixth Playlist',
+  user_id: guest.id
+)
+
+playlist7 = Playlist.create!(
+  title: 'Seventh Playlist',
+  user_id: guest.id
+)
+
+playlist8 = Playlist.create!(
+  title: 'Eighth Playlist',
+  user_id: guest.id
+)
+
+playlist9 = Playlist.create!(
+  title: 'Ninth Playlist',
+  user_id: guest.id
+)
+
+playlist10 = Playlist.create!(
+  title: 'Tenth Playlist',
+  user_id: guest.id
+)
