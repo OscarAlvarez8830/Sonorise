@@ -31,13 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let store;
   if (window.currentUser) {
+    const { user, playlists } = window.currentUser;
     store = configureStore({
-      session: { currentUser: window.currentUser.id },
-      entities: { users: { [window.currentUser.id]: window.currentUser } },
+      session: { currentUser: user.id },
+      entities: { users: { [user.id]: user }, playlists },
     });
     delete window.currentUser;
   } else {
     store = configureStore();
   }
-  ReactDOM.render(<Root store={store} />, root);
+  ReactDOM.render(<Root store={ store } />, root);
 })

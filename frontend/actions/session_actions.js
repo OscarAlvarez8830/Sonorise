@@ -4,10 +4,11 @@ import { thunkAction } from './general_actions';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT = 'LOGOUT';
 
-export const receiveCurrentUser = currentUser => {
+export const receiveCurrentUser = ({ user, playlists }) => {
   return {
     type: RECEIVE_CURRENT_USER,
-    currentUser
+    currentUser: user,
+    playlists,
   };
 };
 
