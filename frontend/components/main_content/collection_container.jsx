@@ -6,6 +6,7 @@ import { getUserById } from 'reducers/entities/users_reducer';
 import {
   getPlaylistsByIdArray
 } from 'reducers/entities/playlists_reducer';
+import CreateButton from './create_button';
 
 const mapStateToProps = state => {
   const user = getUserById(state, getCurrentUser(state));
@@ -13,14 +14,9 @@ const mapStateToProps = state => {
   if (user) playlists = getPlaylistsByIdArray(state, user.playlistIds);
   return {
     playlists,
-    header: <h1 className="PlaylistIndex__h1">This will be a button</h1>,
+    header: <CreateButton />,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
 
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PlaylistIndex);
+export default connect(mapStateToProps)(PlaylistIndex);
