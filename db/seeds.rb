@@ -10,3 +10,24 @@ guest = User.create!(
   username: 'Guest',
   password: 'password'
 )
+
+Playlist.destroy_all
+playlist1 = Playlist.create!(
+  title: 'First Playlist',
+  user_id: guest.id
+)
+
+playlist2 = Playlist.create!(
+  title: 'Second Playlist',
+  user_id: guest.id
+)
+
+playlist3 = Playlist.create!(
+  title: 'Third Playlist',
+  user_id: guest.id
+)
+
+playlist4 = Playlist.create!(
+  title: 'Fourth Playlist',
+  user_id: guest.id
+)
