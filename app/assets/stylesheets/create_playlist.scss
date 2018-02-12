@@ -1,0 +1,77 @@
+.PlaylistCreateForm {
+  z-index: 5;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.PlaylistCreateForm__button--close {
+  margin-bottom: 3%;
+  background: transparent;
+  font-size: 48px;
+  font-weight: 200;
+
+  &:hover {
+    transform: scale(1.1)
+  }
+}
+
+.PlaylistCreateForm__h2 {
+  font-size: 44px;
+}
+
+.PlaylistCreateForm__fieldset {
+  margin-top: 2%;
+  width: 100vw;
+  background: #282828;
+  display: flex;
+  flex-direction: column;
+}
+
+.PlaylistCreateForm__input {
+  font-size: 48px;
+  line-height: 56px;
+  background: #282828;
+  font-weight: 600;
+  caret-color: #1db954;
+  padding: 0 0 30px 30px;
+}
+
+.PlaylistCreateForm__label {
+  font-size: 14px;
+  padding: 30px 0 0 30px;
+}
+
+.PlaylistCreateForm__section {
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+}
+
+.PlaylistCreateForm__btn {
+  padding: 10px 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  margin-left: 20px;
+
+  &:hover {
+    transform: scale(1.1)
+  }
+}
+
+.PlaylistCreateForm__btn--cancel {
+  background: transparent;
+  border: 2px solid grey;
+}
+
+.PlaylistCreateForm__btn--save {
+  background: #1db954;
+}

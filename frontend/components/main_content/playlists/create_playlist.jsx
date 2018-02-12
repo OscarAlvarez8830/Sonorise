@@ -7,6 +7,7 @@ class PlaylistCreateForm extends Component {
   constructor(props) {
     super(props);
     this.state = { title: '' };
+    this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
   }
@@ -40,20 +41,25 @@ class PlaylistCreateForm extends Component {
           className="PlaylistCreateForm__form"
           onSubmit={ this.handleSubmit }>
           <fieldset className="PlaylistCreateForm__fieldset">
-            <label htmlFor="playlist-title">Playlist Name</label>
+            <label className="PlaylistCreateForm__label" htmlFor="playlist-title">Playlist Name</label>
             <input
               className="PlaylistCreateForm__input"
               onChange={ this.updateTitle }
+              placeholder="Start typing..."
               value={ this.state.title } />
           </fieldset>
+          <section className="PlaylistCreateForm__section">
+            <button
+              className="PlaylistCreateForm__btn PlaylistCreateForm__btn--cancel"
+              onClick={ this.closeModal }>
+              Cancel
+            </button>
 
-          <button
-            className="PlaylistCreateForm__button--cancel"
-            onClick={ this.closeModal }>
-            Cancel
-          </button>
-
-          <button className="PlaylistCreateForm__button--save">Create</button>
+            <button
+              className="PlaylistCreateForm__btn PlaylistCreateForm__btn--save">
+              Create
+            </button>
+          </section>
         </form>
       </div>
     );
