@@ -1,8 +1,9 @@
-import {
-  RECEIVE_CURRENT_USER,
-} from 'actions/session_actions';
+import { merge } from 'lodash';
+import { RECEIVE_CURRENT_USER } from 'actions/session_actions';
+import { RECEIVE_PLAYLIST } from 'actions/playlist_actions';
 
 export default (state = {}, action) => {
+  let newState;
   switch (action.type) {
   case RECEIVE_CURRENT_USER:
     return Object.assign(
@@ -10,6 +11,10 @@ export default (state = {}, action) => {
       state,
       { [action.currentUser.id]: action.currentUser }
     );
+  case RECEIVE_PLAYLIST:
+    newState = merge({}, state);
+    newState[action.playlist.userId].playlistIds.push(action.playlist.id);
+    return newState;
   default:
     return state;
   }

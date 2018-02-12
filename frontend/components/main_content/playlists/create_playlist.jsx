@@ -8,14 +8,29 @@ class PlaylistCreateForm extends Component {
     super(props);
     this.state = { title: '' };
     this.closeModal = this.closeModal.bind(this);
+    this.escHandler = this.escHandler.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
   }
 
+  componentDidMount() {
+    this.input.focus();
+    document.addEventListener('keydown', this.escHandler);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.escHandler);
+  }
+
   closeModal(e) {
+    if (e.currentTarget.name === 'cancel') return;
     e.preventDefault();
     e.stopPropagation();
     this.props.closeModal();
+  }
+
+  escHandler(e) {
+    if (e.keyCode === 27) this.closeModal(e);
   }
 
   handleSubmit(e) {
@@ -45,12 +60,14 @@ class PlaylistCreateForm extends Component {
             <input
               className="PlaylistCreateForm__input"
               onChange={ this.updateTitle }
+              ref={ input => this.input = input }
               placeholder="Start typing..."
               value={ this.state.title } />
           </fieldset>
           <section className="PlaylistCreateForm__section">
             <button
-              className="PlaylistCreateForm__btn PlaylistCreateForm__btn--cancel"
+              className="PlaylistCreateForm__btn PlaylistCreateForm__btn--close"
+              name="cancel"
               onClick={ this.closeModal }>
               Cancel
             </button>

@@ -12,7 +12,7 @@ export const receivePlaylists = playlists => {
   };
 };
 
-export const receivePlaylist = playlist => {
+export const receivePlaylist = ({ playlist }) => {
   return {
     type: RECEIVE_PLAYLIST,
     playlist,
