@@ -13,7 +13,7 @@ export default (state = {}, action) => {
     );
   case RECEIVE_PLAYLIST:
     newState = merge({}, state);
-    newState[action.playlist.userId].playlistIds.push(action.playlist.id);
+    newState[action.playlist.userId].playlistIds = action.playlistIds;
     return newState;
   default:
     return state;
