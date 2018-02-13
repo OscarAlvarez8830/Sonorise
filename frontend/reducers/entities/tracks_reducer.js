@@ -9,6 +9,10 @@ export default (state = {}, action) => {
   }
 };
 
+export const getTracksByIdArray = (state, ids) => {
+  return ids.map(id => state.entities.tracks[id]);
+};
+
 export const getTrackById = (state, id) => {
   return state.entities.tracks[id];
 };

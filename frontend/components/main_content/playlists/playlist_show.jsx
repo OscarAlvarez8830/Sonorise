@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPlaylistById } from 'reducers/entities/playlists_reducer';
 import { getUserById } from 'reducers/entities/users_reducer';
+import { getTracksByIdArray } from 'reducers/entities/tracks_reducer';
 import { fetchPlaylist } from 'actions/playlist_actions';
+import TrackIndex from '../tracks/track_index';
 
 class PlaylistShow extends Component {
   componentDidMount() {
@@ -10,7 +12,8 @@ class PlaylistShow extends Component {
   }
 
   render() {
-    const { playlist, user } = this.props;
+    const { playlist, user, tracks } = this.props;
+    debugger
     return (
       <main className="PlaylistShow">
         <header className="PlaylistShow__header">
@@ -28,6 +31,7 @@ class PlaylistShow extends Component {
             </button>
           </section>
         </header>
+        <TrackIndex tracks={ tracks } />
       </main>
     );
   }
@@ -35,11 +39,15 @@ class PlaylistShow extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
-  const playlist = getPlaylistById(state, id) || { id: 0, title: '', count: 0 };
+  const defaultPlaylist = { id: 0, title: '', count: 0, trackIds: [] };
+  const playlist = getPlaylistById(state, id) || defaultPlaylist;
   const user = getUserById(state, playlist.userId) || { username: '' };
+  const tracks = getTracksByIdArray(state, playlist.trackIds);
+
   return {
     playlist,
     user,
+    tracks,
   };
 };
 

@@ -9,6 +9,7 @@ json.playlists do
   user.playlists.each do |playlist|
     json.set! playlist.id do
       json.partial! 'api/playlists/playlist.json', playlist: playlist
+      json.trackIds []
     end
   end
 end
