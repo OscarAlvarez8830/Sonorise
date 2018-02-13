@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TrackIndexItem from './track_index_item';
 
-const TrackIndex = ({ tracks }) => {
-  debugger
+const TrackIndex = ({ playTrack, tracks }) => {
   const trackItems = tracks.map(track => {
     return (
       <TrackIndexItem
