@@ -12,12 +12,13 @@ export const receivePlaylists = playlists => {
   };
 };
 
-export const receivePlaylist = ({ playlist, playlistIds, tracks }) => {
+export const receivePlaylist = ({ playlist, playlistIds, tracks, artists }) => {
   return {
     type: RECEIVE_PLAYLIST,
     playlist,
     playlistIds,
     tracks,
+    artists,
   };
 };
 

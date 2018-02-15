@@ -16,9 +16,9 @@
     "webpack": "^3.10.0"
   },
   "scripts": {
-   "test": "echo \"Error: no test specified\" && exit 1",
-   "postinstall": "webpack",
-   "webpack": "webpack --watch"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack",
+    "webpack": "webpack --watch"
   },
   "engines": {
     "node": "9.5.0",
