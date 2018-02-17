@@ -48,27 +48,31 @@ class PlaylistCreateForm extends Component {
       <div className="PlaylistCreateForm">
         <button
           className="PlaylistCreateForm__button--close"
-          onClick={ this.props.closeModal }>
+          onClick={this.props.closeModal}>
           X
         </button>
         <h2 className="PlaylistCreateForm__h2">Create new playlist</h2>
         <form
           className="PlaylistCreateForm__form"
-          onSubmit={ this.handleSubmit }>
+          onSubmit={this.handleSubmit}>
           <fieldset className="PlaylistCreateForm__fieldset">
-            <label className="PlaylistCreateForm__label" htmlFor="playlist-title">Playlist Name</label>
+            <label
+              className="PlaylistCreateForm__label"
+              htmlFor="playlist-title">
+              Playlist Name
+            </label>
             <input
               className="PlaylistCreateForm__input"
-              onChange={ this.updateTitle }
-              ref={ input => this.input = input }
+              onChange={this.updateTitle}
+              ref={input => this.input = input}
               placeholder="Start typing..."
-              value={ this.state.title } />
+              value={this.state.title} />
           </fieldset>
           <section className="PlaylistCreateForm__section">
             <button
               className="PlaylistCreateForm__btn PlaylistCreateForm__btn--close"
               name="cancel"
-              onClick={ this.closeModal }>
+              onClick={this.closeModal}>
               Cancel
             </button>
 

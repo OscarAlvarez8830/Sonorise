@@ -5,13 +5,13 @@ export default ({ playlist }) => {
   return (
     <li className="PlaylistIndexItem">
       <Link
-        to={ `/playlist/${playlist.id}` }
+        to={`/playlist/${laylist.id}`}
         className="PlaylistIndexItem__link">
         <img
-          src={ playlist.image }
+          src={playlist.image}
           alt="album-art"
           className="PlaylistIndexItem__img" />
-        <span className="PlaylistIndexItem__span">{ playlist.title }</span>
+        <span className="PlaylistIndexItem__span">{playlist.title}</span>
       </Link>
     </li>
   );

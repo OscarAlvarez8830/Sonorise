@@ -12,14 +12,14 @@ import { getModal } from 'reducers';
 const Main = ({ modal }) => {
   return (
     <main className="Main">
-      { modal }
+      {modal}
       <Sidebar />
       <section className="Main__section">
         <Switch>
-          <ProtectedRoute path="/browse" component={ Home } />
-          <ProtectedRoute path="/collection" component={ YourMusic } />
-          <ProtectedRoute path="/playlist/:id" component={ PlaylistShow } />
-          <ProtectedRoute path="/account" component={ Account } />
+          <ProtectedRoute path="/browse" component={Home} />
+          <ProtectedRoute path="/collection" component={YourMusic} />
+          <ProtectedRoute path="/playlist/:id" component={PlaylistShow} />
+          <ProtectedRoute path="/account" component={Account} />
         </Switch>
       </section>
     </main>

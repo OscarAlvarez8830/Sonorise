@@ -16,12 +16,12 @@ class PlaylistShow extends Component {
     return (
       <main className="PlaylistShow">
         <header className="PlaylistShow__header">
-          <img src={ playlist.image } className="PlaylistShow__img" />
-          <h2 className="PlaylistShow__h2">{ playlist.title }</h2>
+          <img src={playlist.image} className="PlaylistShow__img" />
+          <h2 className="PlaylistShow__h2">{playlist.title}</h2>
           <section className="PlaylistShow__section">
-            <div className="PlaylistShow__div">By { user.username }</div>
+            <div className="PlaylistShow__div">By {user.username}</div>
             <div className="PlaylistShow__div">
-              { playlist.count } songs
+              {playlist.count} songs
             </div>
             <button
               className="PlaylistShow__btn--play"
@@ -30,7 +30,7 @@ class PlaylistShow extends Component {
             </button>
           </section>
         </header>
-        <TrackIndex tracks={ tracks } />
+        <TrackIndex tracks={tracks} />
       </main>
     );
   }

@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => {
 
 const CreateButton = ({ openModal }) => {
   return (
-    <button className="CreateButton" onClick={ openModal }>New Playlist</button>
+    <button className="CreateButton" onClick={openModal}>New Playlist</button>
   );
 };
 

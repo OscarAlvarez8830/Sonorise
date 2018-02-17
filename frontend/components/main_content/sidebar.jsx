@@ -28,13 +28,13 @@ const Sidebar = ({ currentUser, logout }) => {
       </ul>
       <section className="Sidebar__section">
         <img
-          src={ currentUser.avatarThumb }
+          src={currentUser.avatarThumb}
           alt="user-photo"
           className="Sidebar__img" />
         <Link
           to="/account"
           className="Sidebar__link--username">
-          { currentUser.username }
+          {currentUser.username}
         </Link>
       </section>
     </nav>

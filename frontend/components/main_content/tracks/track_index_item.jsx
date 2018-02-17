@@ -5,17 +5,17 @@ import { getArtistById } from 'reducers';
 const TrackIndexItem = ({ track, playTrack, artist, ord }) => {
   return (
     <li className="TrackIndexItem">
-      <div className="TrackIndexItem__div--ord">{ ord }.</div>
+      <div className="TrackIndexItem__div--ord">{ord}.</div>
       <div className="TrackIndexItem__div">
         <div className="TrackIndexItem__div--title">
-          <span classname="TrackIndexItem__span--title">{ track.title }</span>
+          <span classname="TrackIndexItem__span--title">{track.title}</span>
         </div>
         <div className="TrackIndexItem__div--artist">
-          { artist.name }
+          {artist.name}
         </div>
       </div>
       <div className="TrackIndexItem__div--time">
-        { track.duration }
+        {track.duration}
       </div>
     </li>
   );

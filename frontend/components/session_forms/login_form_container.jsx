@@ -27,7 +27,7 @@ const LoginForm = ({ clearErrors, errors, login, submit }) => {
       <span className="SessionForm__span">Don't have an account?</span>
       <Link
         to="sign-up"
-        onClick={ clearErrors }
+        onClick={clearErrors}
         className="SessionForm__link">
         Sign up
       </Link>
@@ -35,11 +35,11 @@ const LoginForm = ({ clearErrors, errors, login, submit }) => {
   );
   return (
     <SessionForm
-      errors={ errors }
-      initialState={ initialState }
-      login={ login }
-      navLink={ navLink }
-      submit={ submit }
+      errors={errors}
+      initialState={initialState}
+      login={login}
+      navLink={navLink}
+      submit={submit}
       submitText="Log in" />
   );
 };

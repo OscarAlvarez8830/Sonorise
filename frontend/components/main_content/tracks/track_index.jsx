@@ -5,14 +5,14 @@ export default ({ tracks }) => {
   const trackItems = tracks.map((track, idx) => {
     return (
       <TrackIndexItem
-        key={ track.id }
-        ord={ idx + 1 }
-        track={ track } />
+        key={track.id}
+        ord={idx + 1}
+        track={track} />
     );
   });
   return (
     <ol className="TrackIndex">
-      { trackItems }
+      {trackItems}
     </ol>
   );
 };

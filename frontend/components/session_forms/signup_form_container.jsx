@@ -24,10 +24,10 @@ const SignupForm = ({ clearErrors, errors, login, submit }) => {
   const initialState = { email: '', username: '', password: '' };
   const navLink = (
     <section className="SessionForm__section">
-      <span className="SessionForm__span">Already an account?</span>
+      <span className="SessionForm__span">Already have an account?</span>
       <Link
         to="login"
-        onClick={ clearErrors }
+        onClick={clearErrors}
         className="SessionForm__link">
         Log in
       </Link>
@@ -35,11 +35,11 @@ const SignupForm = ({ clearErrors, errors, login, submit }) => {
   );
   return (
     <SessionForm
-      errors={ errors }
-      initialState={ initialState }
-      login={ login }
-      navLink={ navLink }
-      submit={ submit }
+      errors={errors}
+      initialState={initialState}
+      login={login}
+      navLink={navLink}
+      submit={submit}
       submitText="Sign up" />
   );
 };

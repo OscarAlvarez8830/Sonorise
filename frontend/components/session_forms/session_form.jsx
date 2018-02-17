@@ -18,7 +18,7 @@ export default class SessionForm extends Component {
       this.props.login({ email: 'guest@gmail.com', password: 'password' });
     }
     return (
-      <button className="SessionForm__button" onClick={ clickHandler }>
+      <button className="SessionForm__button" onClick={clickHandler}>
         Log in as Guest
       </button>
     );
@@ -34,7 +34,7 @@ export default class SessionForm extends Component {
     if (this.props.errors[field]) {
       return (
         <aside className="SessionForm__aside">
-          { `${this.props.errors[field]}` }
+          {`${this.props.errors[field]}`}
         </aside>
       );
     }
@@ -53,11 +53,11 @@ export default class SessionForm extends Component {
           <input
             type="text"
             className={`SessionForm__input${this.errorStyling('username')}`}
-            onChange={ this.update('username') }
+            onChange={this.update('username')}
             placeholder="What should we call you?"
-            value={ this.state.username } />
+            value={this.state.username} />
 
-            { this.renderErrors('username') }
+            {this.renderErrors('username')}
         </fieldset>
       );
     }
@@ -67,38 +67,38 @@ export default class SessionForm extends Component {
     return (
       <main className="SessionForm">
         <header className="SessionForm__header">Sonorise</header>
-        <form className="SessionForm__form" onSubmit={ this.handleSubmit }>
-          { this.renderErrors('base') }
+        <form className="SessionForm__form" onSubmit={this.handleSubmit}>
+          {this.renderErrors('base')}
           <fieldset className="SessionForm__fieldset">
             <input
               type="text"
               className={`SessionForm__input${this.errorStyling('email')}`}
-              onChange={ this.update('email') }
+              onChange={this.update('email')}
               placeholder="Email"
-              value={ this.state.email } />
+              value={this.state.email} />
 
-            { this.renderErrors('email') }
+            {this.renderErrors('email')}
           </fieldset>
 
-          { this.usernameField() }
+          {this.usernameField()}
 
           <fieldset className="SessionForm__fieldset">
             <input
               type="password"
               className={`SessionForm__input${this.errorStyling('password')}`}
-              onChange={ this.update('password') }
+              onChange={this.update('password')}
               placeholder="Password"
-              value={ this.state.password } />
+              value={this.state.password} />
 
-            { this.renderErrors('password') }
+            {this.renderErrors('password')}
           </fieldset>
 
           <button className="SessionForm__button">
-            { this.props.submitText }
+            {this.props.submitText}
           </button>
         </form>
-        { this.guestLogin() }
-        { this.props.navLink }
+        {this.guestLogin()}
+        {this.props.navLink}
       </main>
     );
   }

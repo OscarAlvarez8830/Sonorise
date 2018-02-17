@@ -8,11 +8,11 @@ const Account = ({ currentUser, logout }) => {
   return (
     <section className="Account">
       <img
-        src={ currentUser.avatarMedium }
+        src={currentUser.avatarMedium}
         alt="user-photo"
         className="Account__img" />
-      <h3 className="Account__h3">{ currentUser.username }</h3>
-      <button className="Account__btn" onClick={ logout }>Log Out</button>
+      <h3 className="Account__h3">{currentUser.username}</h3>
+      <button className="Account__btn" onClick={logout}>Log Out</button>
     </section>
   );
 };

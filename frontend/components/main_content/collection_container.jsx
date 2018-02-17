@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import PlaylistIndex from './playlist_index';
 import { getCurrentUser } from 'reducers';
 import { getUserById } from 'reducers';
-import {
-  getPlaylistsByIdArray
-} from 'reducers';
+import { getPlaylistsByIdArray } from 'reducers';
 import CreateButton from './create_button';
 
 const mapStateToProps = state => {
