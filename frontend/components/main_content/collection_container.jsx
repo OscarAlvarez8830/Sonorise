@@ -5,7 +5,7 @@ import { getCurrentUser } from 'reducers';
 import { getUserById } from 'reducers';
 import {
   getPlaylistsByIdArray
-} from 'reducers/entities/playlists_reducer';
+} from 'reducers';
 import CreateButton from './create_button';
 
 const mapStateToProps = state => {

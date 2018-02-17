@@ -4,7 +4,7 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const receiveErrors = errors => {
   return {
     type: RECEIVE_ERRORS,
-    errors
+    errors,
   };
 };
 

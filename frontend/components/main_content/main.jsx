@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Switch } from 'react-router-dom';
-import { ProtectedRoute } from '../../util/route_util';
+import { ProtectedRoute } from 'util/route_util';
 import Sidebar from './sidebar';
 import YourMusic from './collection_container';
 import Home from './home_container';
