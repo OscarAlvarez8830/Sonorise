@@ -1,9 +1,23 @@
 .TrackIndexItem {
+  padding: 10px;
+  transition: background-color 0.2s;
+  display: flex;
 
+  &:first-child {
+    margin-top: 20px;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .TrackIndexItem__div {
 
+}
+
+.TrackIndexItem__div--ord {
+  margin: 0 10px;
 }
 
 .TrackIndexItem__div--title {

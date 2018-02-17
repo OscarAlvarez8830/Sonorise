@@ -2,16 +2,17 @@ import React from 'react';
 import TrackIndexItem from './track_index_item';
 
 export default ({ tracks }) => {
-  const trackItems = tracks.map(track => {
+  const trackItems = tracks.map((track, idx) => {
     return (
       <TrackIndexItem
         key={ track.id }
+        ord={ idx + 1 }
         track={ track } />
     );
   });
   return (
-    <ul className="TrackIndex">
+    <ol className="TrackIndex">
       { trackItems }
-    </ul>
+    </ol>
   );
 };
