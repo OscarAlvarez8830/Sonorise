@@ -7,7 +7,7 @@ import YourMusic from './collection_container';
 import Home from './home_container';
 import Account from './account_container';
 import PlaylistShow from './playlists/playlist_show';
-import { getModal } from 'reducers/ui/modal_reducer';
+import { getModal } from 'reducers';
 
 const Main = ({ modal }) => {
   return (

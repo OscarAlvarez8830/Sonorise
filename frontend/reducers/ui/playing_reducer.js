@@ -6,6 +6,8 @@ import {
   PREV_TRACK,
 } from 'actions/ui_actions';
 
+import { getTrackById } from 'reducers';
+
 const defaultState = {
   currentTrackOrd: null,
   playing: false,
@@ -14,17 +16,26 @@ const defaultState = {
 };
 
 export default (state = defaultState, action) => {
+  let currentTrackOrd;
+  let queue;
+  let playing;
   switch (action.type) {
   case PLAY_TRACK:
-    const { currentTrackOrd, queue } = action;
-    return Object.assign({}, state, { currentTrackOrd, queue, playing: true });
+    return Object.assign(
+      {},
+      state,
+      {
+        currentTrackOrd: action.currentTrackOrd,
+        queue: action.queue,
+        playing: true
+      }
+    );
   case PAUSE_TRACK:
     return Object.assign({}, state, { playing: false });
   case UNPAUSE_TRACK:
     return Object.assign({}, state, { playing: true });
   case NEXT_TRACK:
-    let currentTrackOrd = state.currentTrackOrd + 1;
-    let playing;
+    currentTrackOrd = state.currentTrackOrd + 1;
 
     if (currentTrackOrd >= state.queue.length) {
       if (state.loop) {
@@ -52,9 +63,8 @@ export default (state = defaultState, action) => {
   }
 }
 
-export const getCurrentTrack = ({ entities, ui }) => {
-  const { tracks } = entities;
-  const { playing: { queue, currentTrackOrd } };
+export const getCurrentTrack = state => {
+  const { queue, currentTrackOrd } = state.ui.playing;
   const trackId = queue[currentTrackOrd];
-  return tracks[trackId] || {};
+  return getTrackById(state, trackId);
 }

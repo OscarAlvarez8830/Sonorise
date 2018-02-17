@@ -1,10 +1,23 @@
 import { combineReducers } from 'redux';
-import session from './session_reducer';
-import entities from './entities';
-import ui from './ui';
+import session, * as SessionSelectors from './session_reducer';
+import entities, * as EntitySelectors from './entities';
+import ui, * as UISelectors from './ui';
 
 export default combineReducers({
   session,
   entities,
   ui,
 });
+
+export const { getErrors, getModal, getCurrentTrack } = UISelectors;
+
+export const { getCurrentUser } = SessionSelectors;
+
+export const {
+  getUserById,
+  getPlaylistById,
+  getPlaylistsByIdArray,
+  getTrackById,
+  getTracksByIdArray,
+  getArtistById,
+} = EntitySelectors;

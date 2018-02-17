@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getPlaylistById } from 'reducers/entities/playlists_reducer';
-import { getUserById } from 'reducers/entities/users_reducer';
-import { getTracksByIdArray } from 'reducers/entities/tracks_reducer';
+import { getPlaylistById } from 'reducers';
+import { getUserById } from 'reducers';
+import { getTracksByIdArray } from 'reducers';
 import { fetchPlaylist } from 'actions/playlist_actions';
 import TrackIndex from '../tracks/track_index';
 

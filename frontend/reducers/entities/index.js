@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import users from './users_reducer';
-import playlists from './playlists_reducer';
-import tracks from './tracks_reducer';
-import artists from './artists_reducer';
+import users, * as UserSelectors from './users_reducer';
+import playlists, * as PlaylistSelectors from './playlists_reducer';
+import tracks, * as TrackSelectors from './tracks_reducer';
+import artists, * as ArtistSelectors from './artists_reducer';
 
 export default combineReducers({
   users,
@@ -10,3 +10,11 @@ export default combineReducers({
   tracks,
   artists,
 });
+
+export const { getUserById } = UserSelectors;
+
+export const { getPlaylistById, getPlaylistsByIdArray } = PlaylistSelectors;
+
+export const { getTracksByIdArray, getTrackById } = TrackSelectors;
+
+export const { getArtistById } = ArtistSelectors;

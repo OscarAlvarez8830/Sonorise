@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getArtistById } from 'reducers/entities/artists_reducer';
+import { getArtistById } from 'reducers';
 
 const TrackIndexItem = ({ track, playTrack, artist, ord }) => {
   return (

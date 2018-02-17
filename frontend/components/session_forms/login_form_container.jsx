@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { login } from 'actions/session_actions';
 import { clearErrors } from 'actions/general_actions';
-import { getErrors } from 'reducers/ui/errors_reducer';
+import { getErrors } from 'reducers';
 import SessionForm from './session_form';
 
 const mapStateToProps = state => {
