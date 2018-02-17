@@ -8,3 +8,7 @@ export default (state = {}, action) => {
     return state;
   }
 }
+
+export const getArtistById = (state, id) => {
+  return state.entities.artists[id];
+}

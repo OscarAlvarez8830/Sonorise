@@ -1,14 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import TrackIndexItem from './track_index_item';
 
-const TrackIndex = ({ playTrack, tracks }) => {
+export default ({ tracks }) => {
   const trackItems = tracks.map(track => {
     return (
       <TrackIndexItem
         key={ track.id }
-        track={ track }
-        playTrack={ playTrack } />
+        track={ track } />
     );
   });
   return (
@@ -17,11 +15,3 @@ const TrackIndex = ({ playTrack, tracks }) => {
     </ul>
   );
 };
-
-const mapDispatchToProps = dispatch => {
-  return {
-    playTrack: id => {},
-  };
-};
-
-export default connect(null, mapDispatchToProps)(TrackIndex);

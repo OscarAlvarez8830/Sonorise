@@ -13,7 +13,6 @@ class PlaylistShow extends Component {
 
   render() {
     const { playlist, user, tracks } = this.props;
-    debugger
     return (
       <main className="PlaylistShow">
         <header className="PlaylistShow__header">
