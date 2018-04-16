@@ -25,7 +25,6 @@ export default class SessionForm extends Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
     this.props.submit(Object.assign({}, this.state));
   }
