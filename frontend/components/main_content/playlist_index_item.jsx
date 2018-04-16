@@ -5,7 +5,7 @@ export default ({ playlist }) => {
   return (
     <li className="PlaylistIndexItem">
       <Link
-        to={`/playlist/${laylist.id}`}
+        to={`/playlist/${playlist.id}`}
         className="PlaylistIndexItem__link">
         <img
           src={playlist.image}
