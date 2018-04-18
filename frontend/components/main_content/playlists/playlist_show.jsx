@@ -43,6 +43,8 @@ const mapStateToProps = (state, ownProps) => {
   const user = getUserById(state, playlist.userId) || { username: '' };
   const tracks = getTracksByIdArray(state, playlist.trackIds);
 
+  // determine whether this is the current playlist
+  // pass down a closure with the playlistId, trackIds, and playTrack
   return {
     playlist,
     user,

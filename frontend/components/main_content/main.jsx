@@ -7,6 +7,7 @@ import YourMusic from './collection_container';
 import Home from './home_container';
 import Account from './account_container';
 import PlaylistShow from './playlists/playlist_show';
+import Playbar from './playbar';
 import { getModal } from 'reducers';
 
 const Main = ({ modal }) => {
@@ -22,6 +23,7 @@ const Main = ({ modal }) => {
           <ProtectedRoute path="/account" component={Account} />
         </Switch>
       </section>
+      <Playbar />
     </main>
   );
 };

@@ -13,4 +13,4 @@ export const { getErrors } = ErrorSelectors;
 
 export const { getModal } = ModalSelectors;
 
-export const { getCurrentTrack } = PlayingSelectors;
+export const { getCurrentTrack, getPlayingState } = PlayingSelectors;

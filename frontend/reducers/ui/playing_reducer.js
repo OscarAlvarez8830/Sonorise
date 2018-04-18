@@ -13,6 +13,7 @@ const defaultState = {
   playing: false,
   queue: [],
   loop: false,
+  playlistId: null,
 };
 
 export default (state = defaultState, action) => {
@@ -27,7 +28,8 @@ export default (state = defaultState, action) => {
       {
         currentTrackOrd: action.currentTrackOrd,
         queue: action.queue,
-        playing: true
+        playing: true,
+        playlistId: action.playlistId,
       }
     );
   case PAUSE_TRACK:
@@ -67,4 +69,8 @@ export const getCurrentTrack = state => {
   const { queue, currentTrackOrd } = state.ui.playing;
   const trackId = queue[currentTrackOrd];
   return getTrackById(state, trackId);
+}
+
+export const getPlayingState = state => {
+  return state.ui.playing.playing;
 }
