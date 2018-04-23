@@ -1,3 +1,5 @@
+import { getPlaylistById } from '../reducers';
+
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const PLAY_TRACK = 'PLAY_TRACK';
@@ -19,12 +21,16 @@ export const closeModal = () => {
   };
 };
 
-export const playTrack = trackId => {
-  return {
+export const playTrack = (playlistId, ord) => (dispatch, getState) => {
+  const playlist = getPlaylistById(getState(), playlistId);
+  const queue = playlist.trackIds;
+  const currentTrackOrd = ord;
+  return dispatch({
     type: PLAY_TRACK,
-    trackId,
-  };
-};
+    queue,
+    currentTrackOrd,
+  });
+}
 
 export const pauseTrack = () => {
   return {

@@ -9,10 +9,24 @@ import {
 } from '../../actions/ui_actions';
 import { getCurrentTrack } from '../../reducers';
 
-export const Playbar = props => {
+export const Playbar = ({
+  currentTrack,
+  playTrack,
+  pauseTrack,
+  unpauseTrack,
+  nextTrack,
+  prevTrack
+}) => {
+
+  const audio = currentTrack ? currentTrack.audio : {};
   return (
     <footer className="Playbar">
-      
+      <div className="Playbar__div--audio-cover">
+        <div>Prev</div>
+        <div>Play</div>
+        <div>Next</div>
+      </div>
+      <audio src={audio.url} />
     </footer>
   );
 };

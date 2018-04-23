@@ -67,6 +67,7 @@ export default (state = defaultState, action) => {
 
 export const getCurrentTrack = state => {
   const { queue, currentTrackOrd } = state.ui.playing;
+  if (currentTrackOrd === null) return null;
   const trackId = queue[currentTrackOrd];
   return getTrackById(state, trackId);
 }

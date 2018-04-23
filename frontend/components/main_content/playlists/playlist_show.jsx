@@ -4,11 +4,16 @@ import { getPlaylistById } from 'reducers';
 import { getUserById } from 'reducers';
 import { getTracksByIdArray } from 'reducers';
 import { fetchPlaylist } from 'actions/playlist_actions';
+import { playTrack } from 'actions/ui_actions';
 import TrackIndex from '../tracks/track_index';
 
 class PlaylistShow extends Component {
   componentDidMount() {
     this.props.fetchPlaylist(this.props.match.params.id);
+  }
+
+  playTrack() {
+    return ord => this.props.playTrack(this.props.playlist.id, ord);
   }
 
   render() {
@@ -30,7 +35,7 @@ class PlaylistShow extends Component {
             </button>
           </section>
         </header>
-        <TrackIndex tracks={tracks} />
+        <TrackIndex tracks={tracks} playTrack={this.playTrack()} />
       </main>
     );
   }
@@ -58,4 +63,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);
+export default connect(mapStateToProps, { fetchPlaylist, playTrack })(PlaylistShow);

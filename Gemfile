@@ -34,6 +34,7 @@ gem 'jquery-rails'
 gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '< 3.0'
 gem 'figaro'
+gem 'font-awesome-sass', '~> 5.0.9'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
