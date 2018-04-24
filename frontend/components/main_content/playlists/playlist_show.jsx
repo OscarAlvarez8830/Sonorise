@@ -57,10 +57,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchPlaylist: id => dispatch(fetchPlaylist(id)),
-  };
-};
-
 export default connect(mapStateToProps, { fetchPlaylist, playTrack })(PlaylistShow);
