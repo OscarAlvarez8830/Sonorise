@@ -34,7 +34,7 @@ class Playbar extends Component {
       <footer className="Playbar">
         <div className="Playbar__div--audio-cover">
           <div onClick={prevTrack}>Prev</div>
-          <div onClick={this.playButtonAction}>Play</div>
+          <i className="fas fa-play" onClick={this.playButtonAction}></i>
           <div onClick={nextTrack}>Next</div>
         </div>
         <audio ref={player => this.player = player} src={audio} autoPlay={playing} />
