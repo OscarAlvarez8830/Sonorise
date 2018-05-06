@@ -13,6 +13,7 @@ class TrackIndexItem extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (nextProps.isCurrentTrack && !this.state.playButton) this.setState({ playButton: true });
     if (!nextProps.isCurrentTrack && this.state.playButton) {
       this.setState({ playButton: false });
     }
@@ -39,7 +40,7 @@ class TrackIndexItem extends Component {
   }
 
   hidePlayButton(e) {
-    if (!this.state.playButton) return;
+    if (!this.state.playButton || this.props.isCurrentTrack) return;
     this.setState({ playButton: false });
   }
 

@@ -36,6 +36,7 @@ export default (state = defaultState, action) => {
     return Object.assign({}, state, { playing: true });
   case NEXT_TRACK:
     currentTrackOrd = state.currentTrackOrd + 1;
+    playing = state.playing;
 
     if (currentTrackOrd >= state.queue.length) {
       if (state.loop) {

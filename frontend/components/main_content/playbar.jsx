@@ -15,9 +15,9 @@ class Playbar extends Component {
     this.playButtonAction = this.playButtonAction.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.currentTrack) return;
-    nextProps.playing ? this.player.play() : this.player.pause();
+  componentDidUpdate() {
+    if (!this.props.currentTrack) return;
+    this.props.playing ? this.player.play() : this.player.pause();
   }
 
   playButtonAction() {
