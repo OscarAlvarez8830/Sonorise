@@ -1,12 +1,10 @@
 .Main {
-  display: flex;
-  justify-content: space-between;
   color: white;
   background-image: linear-gradient(rgb(108, 79, 45), rgb(10, 7, 4) 85%);
+  width: 100%;
 }
 
 .Main__section {
-  width: calc(100vw - 21% + 40px);
-  height: calc(100vh - 90px);
-  overflow: scroll;
+  height: 100%;
+  padding-left: 220px;
 }

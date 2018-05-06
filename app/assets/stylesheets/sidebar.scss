@@ -1,11 +1,12 @@
 .Sidebar {
-  width: calc(21% - 40px);
+  width: 180px;
   height: calc(100vh - 130px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
   background: rgba(0,0,0,0.5);
+  position: fixed;
 }
 
 .Sidebar__ul {
