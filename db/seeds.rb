@@ -73,32 +73,38 @@ artist2 = Artist.create!(
 Track.destroy_all
 track1 = Track.create!(
   title: 'First Track',
-  artist_id: artist1.id
+  artist_id: artist1.id,
+  audio: "https://s3.amazonaws.com/sonorise-dev/01+Down.mp3"
 )
 
 track2 = Track.create!(
   title: 'Second Track',
-  artist_id: artist1.id
+  artist_id: artist1.id,
+  audio: "https://s3.amazonaws.com/sonorise-dev/02+Talk+to+Me.mp3"
 )
 
 track3 = Track.create!(
   title: 'Third Track',
-  artist_id: artist1.id
+  artist_id: artist1.id,
+  audio: "https://s3.amazonaws.com/sonorise-dev/03+Wild.mp3"
 )
 
 track4 = Track.create!(
   title: 'Fourth Track',
-  artist_id: artist1.id
+  artist_id: artist1.id,
+  audio: "https://s3.amazonaws.com/sonorise-dev/04+Bout+You.mp3"
 )
 
 track5 = Track.create!(
   title: 'Fifth Track',
-  artist_id: artist2.id
+  artist_id: artist2.id,
+  audio: "https://s3.amazonaws.com/sonorise-dev/05+Take+Your+Time.mp3"
 )
 
 track6 = Track.create!(
   title: 'Sixth Track',
-  artist_id: artist2.id
+  artist_id: artist2.id,
+  audio: "https://s3.amazonaws.com/sonorise-dev/06+I+Know+Why.mp3"
 )
 
 PlaylistTrack.destroy_all
