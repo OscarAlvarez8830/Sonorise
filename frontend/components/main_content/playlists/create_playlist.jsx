@@ -23,14 +23,13 @@ class PlaylistCreateForm extends Component {
   }
 
   closeModal(e) {
-    if (e.currentTarget.name === 'cancel') return;
     e.preventDefault();
     e.stopPropagation();
     this.props.closeModal();
   }
 
   escHandler(e) {
-    if (e.keyCode === 27) this.closeModal(e);
+    if (e.keyCode === 27) this.props.closeModal();
   }
 
   handleSubmit(e) {

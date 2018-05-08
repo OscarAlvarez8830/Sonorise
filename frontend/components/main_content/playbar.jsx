@@ -10,32 +10,55 @@ import {
 import { getCurrentTrack, getPlayingState } from '../../reducers';
 
 class Playbar extends Component {
-  constructor(props) {
-    super(props);
-    this.playButtonAction = this.playButtonAction.bind(this);
-  }
-
   componentDidUpdate() {
     if (!this.props.currentTrack) return;
     this.props.playing ? this.player.play() : this.player.pause();
   }
 
-  playButtonAction() {
-    if (!this.props.currentTrack) return;
-    this.props.playing ? this.props.pauseTrack() : this.props.unpauseTrack();
+  playButton() {
+    let action = e => {};
+    let klass = 'far fa-play-circle';
+    if (this.props.currentTrack) {
+      if (this.props.playing) {
+        action = this.props.pauseTrack;
+        klass = 'far fa-pause-circle';
+      } else {
+        action = this.props.unpauseTrack;
+      }
+    }
+
+    return <i className={klass} onClick={action}></i>;
   }
 
   render() {
     const { currentTrack, playing, prevTrack, nextTrack } = this.props;
 
-    const audio = currentTrack ? currentTrack.audio : '';
+    let audio = '';
+    let title = '';
+    let artist = '';
+    let albumArt = '';
+
+    if (currentTrack) {
+      audio = currentTrack.audio;
+      title = currentTrack.title;
+      artist = currentTrack.artist;
+      albumArt = currentTrack.albumArt; // make an album table
+    }
 
     return (
       <footer className="Playbar">
+        <div className="Playbar__div--track-info">
+          <img className="Playbar__img--album-art" src={albumArt} alt="album art" />
+          <span className="Playbar__span--track-title">{title}</span>
+          <span className="Playbar__span--track-artist">{artist}</span>
+        </div>
         <div className="Playbar__div--audio-cover">
-          <div onClick={prevTrack}>Prev</div>
-          <i className="fas fa-play" onClick={this.playButtonAction}></i>
-          <div onClick={nextTrack}>Next</div>
+          <i className="fas fa-step-backward" onClick={prevTrack}></i>
+          {this.playButton()}
+          <i className="fas fa-step-forward" onClick={nextTrack}></i>
+        </div>
+        <div className="Playbar__div--queue-slider">
+          
         </div>
         <audio ref={player => this.player = player} src={audio} autoPlay={playing} />
       </footer>
@@ -44,6 +67,7 @@ class Playbar extends Component {
 }
 
 const mapStateToProps = state => {
+  // write and use a selector to get artist for current track
   return {
     currentTrack: getCurrentTrack(state),
     playing: getPlayingState(state),

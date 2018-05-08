@@ -22,12 +22,12 @@ class TrackIndexItem extends Component {
   playButton() {
     const { playing, isCurrentTrack, playTrack, pauseTrack, unpauseTrack } = this.props;
     let action;
-    let klass;
+    let klass = 'TrackIndexItem__icon';
     if (playing && isCurrentTrack) {
+      klass += ' fas fa-pause';
       action = pauseTrack;
-      klass = 'fas fa-pause';
     } else {
-      klass = 'fas fa-play';
+      klass += ' fas fa-play';
       action = isCurrentTrack ? unpauseTrack : playTrack;
     }
     return <i className={klass} onClick={action}></i>
