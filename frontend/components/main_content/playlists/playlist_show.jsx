@@ -8,12 +8,21 @@ import { playTrack } from 'actions/ui_actions';
 import TrackIndex from '../tracks/track_index';
 
 class PlaylistShow extends Component {
+  constructor(props) {
+    super(props);
+    this.playPlaylist = this.playPlaylist.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchPlaylist(this.props.match.params.id);
   }
 
   playTrack() {
     return ord => this.props.playTrack(this.props.playlist.id, ord);
+  }
+
+  playPlaylist() {
+    this.props.playTrack(this.props.playlist.id, 0);
   }
 
   render() {
@@ -30,7 +39,7 @@ class PlaylistShow extends Component {
             </div>
             <button
               className="PlaylistShow__btn--play"
-              onClick={() => console.log(`playing ${playlist.id}`)}>
+              onClick={this.playPlaylist}>
               Play
             </button>
           </section>
