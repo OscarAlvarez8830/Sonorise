@@ -12,9 +12,15 @@ import { getCurrentTrack, getArtistById, getPlayingState } from '../../reducers'
 class Playbar extends Component {
   constructor(props) {
     super(props);
-    this.state = { volume: 0.8 };
+    this.state = { volume: 0.8, progress: 0 };
 
     this.handleVolume = this.handleVolume.bind(this);
+    this.updateTime = this.updateTime.bind(this);
+  }
+
+  updateTime() {
+    const { currentTime, duration } = this.player;
+    this.setState({ progress: (currentTime / duration) * 100 });
   }
 
   componentDidUpdate() {
@@ -67,14 +73,32 @@ class Playbar extends Component {
           <span className="Playbar__span--track-artist">{artist}</span>
         </div>
         <div className="Playbar__div--audio-cover">
-          <i className="fas fa-step-backward" onClick={prevTrack}></i>
-          {this.playButton()}
-          <i className="fas fa-step-forward" onClick={nextTrack}></i>
+          <div className="Playbar__div--controls">
+            <i className="fas fa-step-backward" onClick={prevTrack}></i>
+            {this.playButton()}
+            <i className="fas fa-step-forward" onClick={nextTrack}></i>
+          </div>
+
+          <div className="Playbar__div--progress-bar">
+            <div
+              style={{ width: `${this.state.progress}%` }}
+              className="Playbar__div--progress-bar-completed" />
+          </div>
         </div>
         <div className="Playbar__div--queue-slider">
-          <input type="range" min="0" max="1" step="0.05" value={this.state.volume} onChange={this.handleVolume} />
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.05"
+            onChange={this.handleVolume}
+            value={this.state.volume} />
         </div>
-        <audio ref={player => this.player = player} src={audio} autoPlay={playing} onEnded={nextTrack} />
+        <audio
+          ref={player => this.player = player}
+          src={audio} autoPlay={playing}
+          onEnded={nextTrack}
+          onTimeUpdate={this.updateTime} />
       </footer>
     );
   }
