@@ -7,12 +7,26 @@ import {
   nextTrack,
   prevTrack,
 } from '../../actions/ui_actions';
-import { getCurrentTrack, getPlayingState } from '../../reducers';
+import { getCurrentTrack, getArtistById, getPlayingState } from '../../reducers';
 
 class Playbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { volume: 0.8 };
+
+    this.handleVolume = this.handleVolume.bind(this);
+  }
+
   componentDidUpdate() {
     if (!this.props.currentTrack) return;
     this.props.playing ? this.player.play() : this.player.pause();
+  }
+
+  handleVolume(e) {
+    this.setState(
+      { volume: e.target.value },
+      () => this.player.volume = this.state.volume
+    );
   }
 
   playButton() {
@@ -31,7 +45,7 @@ class Playbar extends Component {
   }
 
   render() {
-    const { currentTrack, playing, prevTrack, nextTrack } = this.props;
+    const { currentTrack, currentArtist, playing, prevTrack, nextTrack } = this.props;
 
     let audio = '';
     let title = '';
@@ -41,8 +55,8 @@ class Playbar extends Component {
     if (currentTrack) {
       audio = currentTrack.audio;
       title = currentTrack.title;
-      artist = currentTrack.artist;
-      albumArt = currentTrack.albumArt; // make an album table
+      artist = currentArtist.name;
+      albumArt = currentTrack.albumArt;
     }
 
     return (
@@ -58,18 +72,21 @@ class Playbar extends Component {
           <i className="fas fa-step-forward" onClick={nextTrack}></i>
         </div>
         <div className="Playbar__div--queue-slider">
-          
+          <input type="range" min="0" max="1" step="0.05" value={this.state.volume} onChange={this.handleVolume} />
         </div>
-        <audio ref={player => this.player = player} src={audio} autoPlay={playing} />
+        <audio ref={player => this.player = player} src={audio} autoPlay={playing} onEnded={nextTrack} />
       </footer>
     );
   }
 }
 
 const mapStateToProps = state => {
-  // write and use a selector to get artist for current track
+  const currentTrack = getCurrentTrack(state);
+  let currentArtist = {};
+  if (currentTrack) currentArtist = getArtistById(state, currentTrack.artistId);
   return {
-    currentTrack: getCurrentTrack(state),
+    currentTrack,
+    currentArtist,
     playing: getPlayingState(state),
   };
 };
