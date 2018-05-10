@@ -88,4 +88,4 @@ const mapStateToProps = (state, { track }) => {
   };
 };
 
-export default connect(mapStateToProps, { pauseTrack })(TrackIndexItem);
+export default connect(mapStateToProps, { pauseTrack, unpauseTrack })(TrackIndexItem);
