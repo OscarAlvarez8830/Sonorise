@@ -39,6 +39,19 @@ class Playbar extends Component {
     return <i className={klass} onClick={action}></i>;
   }
 
+  seek = e => {
+    const playerWidth = e.currentTarget.clientWidth;
+    const playerStart = e.currentTarget.offsetLeft;
+    const position = e.clientX;
+
+    this.setState(
+      { progress: ((position - playerStart) / playerWidth) * 100 },
+      () => {
+        this.player.currentTime = this.state.progress / 100 * this.player.duration;
+      }
+    );
+  }
+
   updateTime = () => {
     const { currentTime, duration } = this.player;
     this.setState({ progress: (currentTime / duration) * 100 });
@@ -73,7 +86,7 @@ class Playbar extends Component {
             <i className="fas fa-step-forward" onClick={nextTrack}></i>
           </div>
 
-          <div className="Playbar__div--progress-bar">
+          <div onMouseUp={this.seek} className="Playbar__div--progress-bar">
             <div
               style={{ width: `${this.state.progress}%` }}
               className="Playbar__div--progress-bar-completed" />
