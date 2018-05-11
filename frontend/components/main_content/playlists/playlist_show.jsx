@@ -30,7 +30,7 @@ class PlaylistShow extends Component {
           <section className="PlaylistShow__section">
             <div className="PlaylistShow__div">By {user.username}</div>
             <div className="PlaylistShow__div">
-              {playlist.count} songs
+              {playlist.trackIds.length} songs
             </div>
             <button
               className="PlaylistShow__btn--play"
