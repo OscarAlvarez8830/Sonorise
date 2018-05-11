@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
 export default class SessionForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = Object.assign({}, props.initialState);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  state = this.props.initialState;
 
   errorStyling(field) {
     return this.props.errors[field] ? ' SessionForm__input--error' : '';
@@ -24,7 +20,7 @@ export default class SessionForm extends Component {
     );
   }
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.submit(Object.assign({}, this.state));
   }

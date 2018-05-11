@@ -23,10 +23,4 @@ const mapStateToProps = state => {
   return { currentUser };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    logout: () => dispatch(logout()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Account);
+export default connect(mapStateToProps, { logout })(Account);

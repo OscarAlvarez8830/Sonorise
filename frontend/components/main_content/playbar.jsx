@@ -10,25 +10,14 @@ import {
 import { getCurrentTrack, getArtistById, getPlayingState } from '../../reducers';
 
 class Playbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { volume: 0.8, progress: 0 };
-
-    this.handleVolume = this.handleVolume.bind(this);
-    this.updateTime = this.updateTime.bind(this);
-  }
-
-  updateTime() {
-    const { currentTime, duration } = this.player;
-    this.setState({ progress: (currentTime / duration) * 100 });
-  }
+  state = { volume: 0.8, progress: 0 };
 
   componentDidUpdate() {
     if (!this.props.currentTrack) return;
     this.props.playing ? this.player.play() : this.player.pause();
   }
 
-  handleVolume(e) {
+  handleVolume = e => {
     this.setState(
       { volume: e.target.value },
       () => this.player.volume = this.state.volume
@@ -49,6 +38,11 @@ class Playbar extends Component {
 
     return <i className={klass} onClick={action}></i>;
   }
+
+  updateTime = () => {
+    const { currentTime, duration } = this.player;
+    this.setState({ progress: (currentTime / duration) * 100 });
+  };
 
   render() {
     const { currentTrack, currentArtist, playing, prevTrack, nextTrack } = this.props;

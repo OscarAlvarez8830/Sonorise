@@ -8,21 +8,16 @@ import { playTrack } from 'actions/ui_actions';
 import TrackIndex from '../tracks/track_index';
 
 class PlaylistShow extends Component {
-  constructor(props) {
-    super(props);
-    this.playPlaylist = this.playPlaylist.bind(this);
-  }
-
   componentDidMount() {
     this.props.fetchPlaylist(this.props.match.params.id);
   }
 
-  playTrack() {
-    return ord => this.props.playTrack(this.props.playlist.id, ord);
+  playTrack = ord => {
+    return this.props.playTrack(this.props.playlist.id, ord);
   }
 
-  playPlaylist() {
-    this.props.playTrack(this.props.playlist.id, 0);
+  playPlaylist = () => {
+    return this.playTrack(0);
   }
 
   render() {
@@ -44,7 +39,7 @@ class PlaylistShow extends Component {
             </button>
           </section>
         </header>
-        <TrackIndex tracks={tracks} playTrack={this.playTrack()} />
+        <TrackIndex tracks={tracks} playTrack={this.playTrack} />
       </main>
     );
   }

@@ -4,14 +4,7 @@ import { createPlaylist } from 'actions/playlist_actions';
 import { closeModal } from 'actions/ui_actions';
 
 class PlaylistCreateForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { title: '' };
-    this.closeModal = this.closeModal.bind(this);
-    this.escHandler = this.escHandler.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateTitle = this.updateTitle.bind(this);
-  }
+  state = { title: '' };
 
   componentDidMount() {
     this.input.focus();
@@ -22,23 +15,23 @@ class PlaylistCreateForm extends Component {
     document.removeEventListener('keydown', this.escHandler);
   }
 
-  closeModal(e) {
+  closeModal = e => {
     e.preventDefault();
     e.stopPropagation();
     this.props.closeModal();
   }
 
-  escHandler(e) {
+  escHandler = e => {
     if (e.keyCode === 27) this.props.closeModal();
   }
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     const playlist = Object.assign({}, this.state);
     this.props.submit(playlist).then(this.props.closeModal);
   }
 
-  updateTitle(e) {
+  updateTitle = e => {
     this.setState({ title: e.currentTarget.value });
   }
 

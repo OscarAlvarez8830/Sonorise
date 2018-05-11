@@ -4,13 +4,7 @@ import { getArtistById, getCurrentTrack, getPlayingState } from 'reducers';
 import { pauseTrack, unpauseTrack } from 'actions/ui_actions';
 
 class TrackIndexItem extends Component {
-  constructor(props) {
-    super(props);
-    const playButton = props.playing && props.isCurrentTrack;
-    this.state = { playButton };
-    this.showPlayButton = this.showPlayButton.bind(this);
-    this.hidePlayButton = this.hidePlayButton.bind(this);
-  }
+  state = { playButton: (this.props.playing && this.props.isCurrentTrack) };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.isCurrentTrack && !this.state.playButton) this.setState({ playButton: true });
@@ -33,12 +27,12 @@ class TrackIndexItem extends Component {
     return <i className={klass} onClick={action}></i>
   }
 
-  showPlayButton(e) {
+  showPlayButton = e => {
     if (this.state.playButton) return;
     this.setState({ playButton: true });
   }
 
-  hidePlayButton(e) {
+  hidePlayButton = e => {
     if (!this.state.playButton || this.props.isCurrentTrack) return;
     this.setState({ playButton: false });
   }

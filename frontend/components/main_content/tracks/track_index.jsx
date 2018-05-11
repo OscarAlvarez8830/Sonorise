@@ -19,5 +19,3 @@ export default ({ tracks, playTrack }) => {
     </ol>
   );
 };
-
-// given whether this is the current queue, determine whether each of the tracks is the current track
