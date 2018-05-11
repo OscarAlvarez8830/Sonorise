@@ -63,21 +63,23 @@ class Playbar extends Component {
     let audio = '';
     let title = '';
     let artist = '';
-    let albumArt = '';
+    let img = null;
 
     if (currentTrack) {
       audio = currentTrack.audio;
       title = currentTrack.title;
       artist = currentArtist.name;
-      albumArt = currentTrack.albumArt;
+      img = <img className="Playbar__img--album-art" src={currentTrack.albumArt} alt="album art" />
     }
 
     return (
       <footer className="Playbar">
         <div className="Playbar__div--track-info">
-          <img className="Playbar__img--album-art" src={albumArt} alt="album art" />
-          <span className="Playbar__span--track-title">{title}</span>
-          <span className="Playbar__span--track-artist">{artist}</span>
+          {img}
+          <aside className="Playbar__aside">
+            <span className="Playbar__span--track-title">{title}</span>
+            <span className="Playbar__span--track-artist">{artist}</span>
+          </aside>
         </div>
         <div className="Playbar__div--audio-cover">
           <div className="Playbar__div--controls">
