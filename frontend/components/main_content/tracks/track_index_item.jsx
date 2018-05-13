@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getArtistById, getCurrentTrack, getPlayingState } from 'reducers';
+import { getArtistById, getCurrentTrack, getPlayingState, getTrackById } from 'reducers';
 import { pauseTrack, unpauseTrack } from 'actions/ui_actions';
 
 class TrackIndexItem extends Component {
@@ -72,13 +72,15 @@ class TrackIndexItem extends Component {
   }
 }
 
-const mapStateToProps = (state, { track }) => {
+const mapStateToProps = (state, { trackId }) => {
   const currentTrack = getCurrentTrack(state);
-  const isCurrentTrack = currentTrack && currentTrack.id === track.id;
+  const isCurrentTrack = currentTrack && currentTrack.id === trackId;
+  const track = getTrackById(state, trackId);
   return {
     artist: getArtistById(state, track.artistId),
     playing: getPlayingState(state),
     isCurrentTrack,
+    track,
   };
 };
 

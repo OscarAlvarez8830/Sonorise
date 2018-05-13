@@ -13,7 +13,7 @@ class PlaylistShow extends Component {
   }
 
   playTrack = ord => {
-    return this.props.playTrack(this.props.playlist.id, ord);
+    return this.props.playTrack(this.props.playlist.trackIds, ord);
   }
 
   playPlaylist = () => {
@@ -21,7 +21,7 @@ class PlaylistShow extends Component {
   }
 
   render() {
-    const { playlist, user, tracks } = this.props;
+    const { playlist, user } = this.props;
     return (
       <main className="PlaylistShow">
         <header className="PlaylistShow__header">
@@ -39,7 +39,7 @@ class PlaylistShow extends Component {
             </button>
           </section>
         </header>
-        <TrackIndex tracks={tracks} playTrack={this.playTrack} />
+        <TrackIndex trackIds={playlist.trackIds} playTrack={this.playTrack} />
       </main>
     );
   }
@@ -50,12 +50,10 @@ const mapStateToProps = (state, ownProps) => {
   const defaultPlaylist = { id: 0, title: '', count: 0, trackIds: [] };
   const playlist = getPlaylistById(state, id) || defaultPlaylist;
   const user = getUserById(state, playlist.userId) || { username: '' };
-  const tracks = getTracksByIdArray(state, playlist.trackIds);
 
   return {
     playlist,
     user,
-    tracks,
   };
 };
 
