@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PlaylistIndex from './playlist_index';
+import PlaylistIndex from './playlists/playlist_index';
 
 const mapStateToProps = state => {
   return {
