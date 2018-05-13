@@ -21,10 +21,7 @@ export const closeModal = () => {
   };
 };
 
-export const playTrack = (playlistId, ord) => (dispatch, getState) => {
-  const playlist = getPlaylistById(getState(), playlistId);
-  const queue = playlist.trackIds;
-  const currentTrackOrd = ord;
+export const playTrack = (queue, currentTrackOrd) => dispatch => {
   return dispatch({
     type: PLAY_TRACK,
     queue,
@@ -54,13 +51,4 @@ export const prevTrack = () => {
   return {
     type: PREV_TRACK,
   };
-};
-
-export const playSearchResult = currentTrackOrd => (dispatch, getState) => {
-  const queue = getSearchResults(getState());
-  return dispatch({
-    type: PLAY_TRACK,
-    queue,
-    currentTrackOrd,
-  });
 };

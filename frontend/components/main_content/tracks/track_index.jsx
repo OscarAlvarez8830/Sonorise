@@ -1,16 +1,14 @@
 import React from 'react';
 import TrackIndexItem from './track_index_item';
 
-export default ({ tracks, playTrack }) => {
-  const trackIds = tracks.map(track => track.id);
-  const trackItems = tracks.map((track, idx) => {
+export default ({ trackIds, playTrack }) => {
+  const trackItems = trackIds.map((trackId, idx) => {
     return (
       <TrackIndexItem
-        key={track.id}
+        key={trackId}
         ord={idx}
         playTrack={e => playTrack(idx)}
-        trackIds={trackIds}
-        track={track} />
+        trackId={trackId} />
     );
   });
   return (

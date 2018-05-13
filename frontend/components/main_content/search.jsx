@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchForTracks, clearSearchResults } from 'actions/track_actions';
-import { playSearchResult } from 'actions/ui_actions';
+import { playTrack } from 'actions/ui_actions';
 import { getSearchResults, getTracksByIdArray } from 'reducers';
 import TrackIndex from './tracks/track_index';
 
@@ -11,6 +11,10 @@ class Search extends Component {
   componentWillUnmount() {
     clearTimeout(this.search);
     this.props.clearSearchResults();
+  }
+
+  playTrack = ord => {
+    return this.props.playTrack(this.props.resultIds, ord);
   }
 
   update = e => {
@@ -29,18 +33,17 @@ class Search extends Component {
   render() {
     return (
       <main className="Search">
-        <input onChange={this.update} value={this.state.query} />
-        <TrackIndex tracks={this.props.results} playTrack={this.props.playSearchResult} />
+        <input className="Search__input" onChange={this.update} value={this.state.query} />
+        <TrackIndex trackIds={this.props.resultIds} playTrack={this.playTrack} />
       </main>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const trackIds = getSearchResults(state);
-  const results = getTracksByIdArray(state, trackIds);
+  const resultIds = getSearchResults(state);
   return {
-    results,
+    resultIds,
   };
 };
 
@@ -49,6 +52,6 @@ export default connect(
   {
     searchForTracks,
     clearSearchResults,
-    playSearchResult,
+    playTrack,
   }
 )(Search);
