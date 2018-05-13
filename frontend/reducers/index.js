@@ -9,7 +9,13 @@ export default combineReducers({
   ui,
 });
 
-export const { getErrors, getModal, getCurrentTrack, getPlayingState } = UISelectors;
+export const {
+  getErrors,
+   getModal,
+   getCurrentTrack,
+   getPlayingState,
+   getSearchResults,
+ } = UISelectors;
 
 export const { getCurrentUser } = SessionSelectors;
 
