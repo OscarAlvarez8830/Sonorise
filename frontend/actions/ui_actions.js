@@ -1,4 +1,4 @@
-import { getPlaylistById } from '../reducers';
+import { getPlaylistById, getSearchResults } from '../reducers';
 
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
@@ -54,4 +54,13 @@ export const prevTrack = () => {
   return {
     type: PREV_TRACK,
   };
+};
+
+export const playSearchResult = currentTrackOrd => (dispatch, getState) => {
+  const queue = getSearchResults(getState());
+  return dispatch({
+    type: PLAY_TRACK,
+    queue,
+    currentTrackOrd,
+  });
 };

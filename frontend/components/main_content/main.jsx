@@ -8,6 +8,7 @@ import Home from './home_container';
 import Account from './account_container';
 import PlaylistShow from './playlists/playlist_show';
 import Playbar from './playbar';
+import Search from './search';
 import { getModal } from 'reducers';
 
 const Main = ({ modal }) => {
@@ -19,6 +20,7 @@ const Main = ({ modal }) => {
         <Switch>
           <ProtectedRoute path="/browse" component={Home} />
           <ProtectedRoute path="/collection" component={YourMusic} />
+          <ProtectedRoute path="/search" component={Search} />
           <ProtectedRoute path="/playlist/:id" component={PlaylistShow} />
           <ProtectedRoute path="/account" component={Account} />
         </Switch>

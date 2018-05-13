@@ -11,6 +11,14 @@ const Sidebar = ({ currentUser, logout }) => {
       <ul className="Sidebar__ul">
         <li className="Sidebar__li">
           <NavLink
+            to="/search"
+            className="Sidebar__link--nav"
+            activeClassName="Sidebar__link--nav--active">
+            Search
+          </NavLink>
+        </li>
+        <li className="Sidebar__li">
+          <NavLink
             to="/browse"
             className="Sidebar__link--nav"
             activeClassName="Sidebar__link--nav--active">
