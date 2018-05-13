@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PlaylistIndex from './playlist_index';
+import PlaylistIndex from './playlists/playlist_index';
 import { getCurrentUser } from 'reducers';
 import { getUserById } from 'reducers';
 import { getPlaylistsByIdArray } from 'reducers';

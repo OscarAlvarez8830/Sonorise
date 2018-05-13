@@ -16,10 +16,10 @@ const Root = ({ store }) => {
       <HashRouter>
         <div>
           <Switch>
-            <AuthRoute path="/login" component={ LoginForm } />
-            <AuthRoute path="/sign-up" component={ SignupForm } />
-            <AuthRoute path="/" exact={ true } component={ LandingPage } />
-            <ProtectedRoute path="/" component={ Main } />
+            <AuthRoute path="/login" component={LoginForm} />
+            <AuthRoute path="/sign-up" component={SignupForm} />
+            <AuthRoute path="/" exact={true} component={LandingPage} />
+            <ProtectedRoute path="/" component={Main} />
           </Switch>
         </div>
       </HashRouter>
@@ -40,5 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  ReactDOM.render(<Root store={ store } />, root);
+  ReactDOM.render(<Root store={store} />, root);
 })
