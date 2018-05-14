@@ -33,7 +33,16 @@ class Search extends Component {
   render() {
     return (
       <main className="Search">
-        <input className="Search__input" onChange={this.update} value={this.state.query} />
+        <section className="Search__section">
+          <label className="Search__label">
+            Search for tracks
+            <input
+              className="Search__input"
+              onChange={this.update}
+              placeholder="Start typing..."
+              value={this.state.query} />
+          </label>
+        </section>
         <TrackIndex trackIds={this.props.resultIds} playTrack={this.playTrack} />
       </main>
     );
