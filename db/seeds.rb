@@ -71,41 +71,33 @@ artist2 = Artist.create!(
 )
 
 Track.destroy_all
-track1 = Track.create!(
-  title: 'First Track',
-  artist_id: artist1.id,
-  audio: "https://s3.amazonaws.com/sonorise-dev/01+Down.mp3"
-)
+track1 = Track.new(title: 'First Track', artist_id: artist1.id)
+track1.audio.attach("https://s3.amazonaws.com/sonorise-dev/01+Down.mp3")
+track1.save!
 
-track2 = Track.create!(
-  title: 'Second Track',
-  artist_id: artist1.id,
-  audio: "https://s3.amazonaws.com/sonorise-dev/02+Talk+to+Me.mp3"
-)
+# track1 = Track.new(title: 'First Track', artist_id: artist1.id)
+# track1.audio.attach(io: open("https://s3.amazonaws.com/sonorise-dev/01+Down.mp3"), filename: '01 Down.mp3')
+# track1.save!
 
-track3 = Track.create!(
-  title: 'Third Track',
-  artist_id: artist1.id,
-  audio: "https://s3.amazonaws.com/sonorise-dev/03+Wild.mp3"
-)
-
-track4 = Track.create!(
-  title: 'Fourth Track',
-  artist_id: artist1.id,
-  audio: "https://s3.amazonaws.com/sonorise-dev/04+Bout+You.mp3"
-)
-
-track5 = Track.create!(
-  title: 'Fifth Track',
-  artist_id: artist2.id,
-  audio: "https://s3.amazonaws.com/sonorise-dev/05+Take+Your+Time.mp3"
-)
-
-track6 = Track.create!(
-  title: 'Sixth Track',
-  artist_id: artist2.id,
-  audio: "https://s3.amazonaws.com/sonorise-dev/06+I+Know+Why.mp3"
-)
+# track2 = Track.new(title: 'Second Track', artist_id: artist1.id)
+# track2.audio.attach(io: "https://s3.amazonaws.com/sonorise-dev/02+Talk+to+Me.mp3", filename: '02 Talk to Me.mp3')
+# track2.save!
+#
+# track3 = Track.new(title: 'Third Track', artist_id: artist1.id)
+# track3.audio.attach(io: "https://s3.amazonaws.com/sonorise-dev/03+Wild.mp3", filename: '03 Wild.mp3')
+# track3.save!
+#
+# track4 = Track.new(title: 'Fourth Track', artist_id: artist1.id)
+# track4.audio.attach(io: "https://s3.amazonaws.com/sonorise-dev/04+Bout+You.mp3", filename: '04 Bout You.mp3')
+# track4.save!
+#
+# track5 = Track.new(title: 'Fifth Track', artist_id: artist2.id)
+# track5.audio.attach(io: "https://s3.amazonaws.com/sonorise-dev/05+Take+Your+Time.mp3", filename: '05 Take Your Time.mp3')
+# track5.save!
+#
+# track6 = Track.new(title: 'Sixth Track', artist_id: artist2.id)
+# track6.audio.attach(io: "https://s3.amazonaws.com/sonorise-dev/06+I+Know+Why.mp3", filename: '06 I Know Why.mp3')
+# track6.save!
 
 PlaylistTrack.destroy_all
 playlist_track1 = PlaylistTrack.create!(
