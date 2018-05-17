@@ -35,6 +35,7 @@ gem 'aws-sdk-s3'
 gem 'figaro'
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'ez_download'
+gem 'pg_search'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

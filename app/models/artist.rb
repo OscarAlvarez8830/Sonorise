@@ -9,6 +9,9 @@
 #
 
 class Artist < ApplicationRecord
+  include PgSearch
+  multisearchable against: :name, using: :trigram
+
   validates :name, presence: true
   has_many :tracks
 end

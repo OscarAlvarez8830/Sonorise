@@ -14,6 +14,9 @@
 #
 
 class Track < ApplicationRecord
+  include PgSearch
+  multisearchable against: :title, using: :trigram
+
   validates :title, presence: true
   belongs_to :artist
   has_many :playlist_tracks
