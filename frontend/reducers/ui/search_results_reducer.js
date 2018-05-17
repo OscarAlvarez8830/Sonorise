@@ -13,7 +13,7 @@ export default (state = defaultState, action) => {
     case RECEIVE_SEARCH_RESULTS:
       return { trackIds: action.trackIds, artistIds: action.artistIds };
     case CLEAR_SEARCH_RESULTS:
-      return [];
+      return defaultState;
     default:
       return state;
   }
