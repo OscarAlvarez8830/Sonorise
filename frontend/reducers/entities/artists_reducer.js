@@ -13,4 +13,8 @@ export default (state = {}, action) => {
 
 export const getArtistById = (state, id) => {
   return state.entities.artists[id];
-}
+};
+
+export const getArtistsByIdArray = (state, ids) => {
+  return ids.map(id => getArtistById(state, id));
+};

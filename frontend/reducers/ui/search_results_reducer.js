@@ -3,10 +3,15 @@ import {
   CLEAR_SEARCH_RESULTS,
 } from 'actions/track_actions';
 
-export default (state = [], action) => {
+const defaultState = {
+  trackIds: [],
+  artistIds: [],
+};
+
+export default (state = defaultState, action) => {
   switch (action.type) {
     case RECEIVE_SEARCH_RESULTS:
-      return action.trackIds;
+      return { trackIds: action.trackIds, artistIds: action.artistIds };
     case CLEAR_SEARCH_RESULTS:
       return [];
     default:
@@ -14,4 +19,5 @@ export default (state = [], action) => {
   }
 };
 
-export const getSearchResults = state => state.ui.searchResults;
+export const getTrackSearchResults = state => state.ui.searchResults.trackIds;
+export const getArtistSearchResults = state => state.ui.searchResults.artistIds;

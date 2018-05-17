@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Switch, Route, NavLink } from 'react-router-dom';
 import { searchForTracks, clearSearchResults } from 'actions/track_actions';
 import { playTrack } from 'actions/ui_actions';
-import { getSearchResults, getTracksByIdArray } from 'reducers';
+import { getTrackSearchResults, getArtistSearchResults, getArtistsByIdArray } from 'reducers';
 import TrackIndex from './tracks/track_index';
+import ArtistIndex from './artists/artist_index';
 
 class Search extends Component {
   state = { query: '' };
@@ -13,8 +15,19 @@ class Search extends Component {
     this.props.clearSearchResults();
   }
 
+  navLinks() {
+    if (this.props.trackIds.length || this.props.artists.length) {
+      return (
+        <nav>
+          <NavLink to="/search" className="Search__navLink">Tracks</NavLink>
+          <NavLink to="/search/artists" className="Search__navLink">Artists</NavLink>
+        </nav>
+      );
+    }
+  }
+
   playTrack = ord => {
-    return this.props.playTrack(this.props.resultIds, ord);
+    return this.props.playTrack(this.props.trackIds, ord);
   }
 
   update = e => {
@@ -23,7 +36,11 @@ class Search extends Component {
       () => {
         clearTimeout(this.search);
         this.search = setTimeout(
-          () => this.props.searchForTracks(this.state.query),
+          () => {
+            if (this.state.query.length){
+              this.props.searchForTracks(this.state.query)
+            }
+          },
           500
         );
       }
@@ -43,16 +60,36 @@ class Search extends Component {
               value={this.state.query} />
           </label>
         </section>
-        <TrackIndex trackIds={this.props.resultIds} playTrack={this.playTrack} />
+
+        {this.navLinks()}
+
+        <Switch>
+          <Route path="/search/artists" render={routeProps => (
+              <ArtistIndex
+                {...routeProps}
+                artists={this.props.artists} />
+            )} />
+
+          <Route
+            path="/search"
+            render={routeProps => (
+              <TrackIndex
+                {...routeProps}
+                trackIds={this.props.trackIds}
+                playTrack={this.playTrack} />
+            )} />
+        </Switch>
       </main>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const resultIds = getSearchResults(state);
+  const artistIds = getArtistSearchResults(state);
+  const artists = getArtistsByIdArray(state, artistIds);
   return {
-    resultIds,
+    trackIds: getTrackSearchResults(state),
+    artists,
   };
 };
 

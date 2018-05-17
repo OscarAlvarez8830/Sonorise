@@ -17,4 +17,4 @@ export const { getPlaylistById, getPlaylistsByIdArray } = PlaylistSelectors;
 
 export const { getTracksByIdArray, getTrackById } = TrackSelectors;
 
-export const { getArtistById } = ArtistSelectors;
+export const { getArtistById, getArtistsByIdArray } = ArtistSelectors;

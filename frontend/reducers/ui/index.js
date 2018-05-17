@@ -17,4 +17,4 @@ export const { getModal } = ModalSelectors;
 
 export const { getCurrentTrack, getPlayingState } = PlayingSelectors;
 
-export const { getSearchResults } = SearchSelectors;
+export const { getTrackSearchResults, getArtistSearchResults } = SearchSelectors;

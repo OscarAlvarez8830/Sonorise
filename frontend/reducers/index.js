@@ -14,7 +14,8 @@ export const {
    getModal,
    getCurrentTrack,
    getPlayingState,
-   getSearchResults,
+   getTrackSearchResults,
+   getArtistSearchResults,
  } = UISelectors;
 
 export const { getCurrentUser } = SessionSelectors;
@@ -26,4 +27,5 @@ export const {
   getTrackById,
   getTracksByIdArray,
   getArtistById,
+  getArtistsByIdArray,
 } = EntitySelectors;
