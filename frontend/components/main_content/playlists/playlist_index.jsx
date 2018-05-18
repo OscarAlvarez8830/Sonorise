@@ -6,7 +6,7 @@ export default ({ header, playlists }) => {
     return <PlaylistIndexItem key={playlist.id} playlist={playlist} />;
   });
   return (
-    <section className="PlayListIndex">
+    <section className="PlaylistIndex">
       {header}
       <ul className="PlaylistIndex__ul">
         {indexItems}

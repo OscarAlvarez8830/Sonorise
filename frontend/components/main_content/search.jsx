@@ -19,7 +19,7 @@ class Search extends Component {
     if (this.props.trackIds.length || this.props.artists.length) {
       return (
         <nav>
-          <NavLink to="/search" className="Search__navLink">Tracks</NavLink>
+          <NavLink to="/search/tracks" className="Search__navLink">Tracks</NavLink>
           <NavLink to="/search/artists" className="Search__navLink">Artists</NavLink>
         </nav>
       );
@@ -38,7 +38,11 @@ class Search extends Component {
         this.search = setTimeout(
           () => {
             if (this.state.query.length){
-              this.props.searchForTracks(this.state.query)
+              this.props.searchForTracks(this.state.query).then(() => {
+                if (this.props.location.pathname === '/search') {
+                  this.props.history.push('/search/tracks')
+                }
+              })
             }
           },
           500
@@ -71,7 +75,7 @@ class Search extends Component {
             )} />
 
           <Route
-            path="/search"
+            path="/search/tracks"
             render={routeProps => (
               <TrackIndex
                 {...routeProps}

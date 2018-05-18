@@ -7,8 +7,8 @@ export default ({ artists }) => {
   });
 
   return (
-    <section className="PlayListIndex">
-      <ul className="PlaylistIndex__ul">
+    <section className="ArtistIndex">
+      <ul className="ArtistIndex__ul">
         {artists.length ? indexItems : noResults}
       </ul>
     </section>

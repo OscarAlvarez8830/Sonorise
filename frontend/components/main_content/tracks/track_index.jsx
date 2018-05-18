@@ -13,7 +13,9 @@ export default ({ trackIds, playTrack }) => {
   });
   return (
     <ol className="TrackIndex">
-      {trackItems}
+      {trackIds.length ? trackItems : noResults}
     </ol>
   );
 };
+
+const noResults = <h2 className="TrackIndex__h2">No results here!</h2>
