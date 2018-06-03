@@ -1,7 +1,6 @@
 json.user do
   json.extract! user, :id, :email, :username
-  json.avatarMedium asset_path(user.avatar.url(:medium))
-  json.avatarThumb asset_path(user.avatar.url(:thumb))
+  json.avatar url_for(user.avatar)
   json.playlistIds user.playlists.pluck(:id)
 end
 

@@ -28,16 +28,11 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
   attr_reader :password
 
-  after_initialize :ensure_session_token
-
-  # has_attached_file :avatar,
-  #   styles: { medium: "200x200>", thumb: "50x50>" },
-  #   default_url: 'default-user-avatar.png'
-  # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-
   has_one_attached :avatar
-
   has_many :playlists
+
+  after_initialize :ensure_session_token
+  before_save :set_default_avatar!
 
   def self.find_by_email_and_pass(email, password)
     user = User.find_by(email: email)
@@ -63,7 +58,15 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  private
+
   def ensure_session_token
     self.session_token ||= User.generate_session_token
+  end
+
+  def set_default_avatar!
+    if self.avatar.attachment.nil?
+      self.avatar.attach(io: File.open('app/assets/images/default-user-avatar.png'), filename: 'default-user-avatar.png')
+    end
   end
 end

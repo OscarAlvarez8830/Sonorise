@@ -36,7 +36,7 @@ const Sidebar = ({ currentUser, logout }) => {
       </ul>
       <section className="Sidebar__section">
         <img
-          src={currentUser.avatarThumb}
+          src={currentUser.avatar}
           alt="user-photo"
           className="Sidebar__img" />
         <Link

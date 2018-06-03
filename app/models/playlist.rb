@@ -18,11 +18,15 @@ class Playlist < ApplicationRecord
   belongs_to :user
   has_many :playlist_tracks
   has_many :tracks, through: :playlist_tracks
-
   has_one_attached :image
 
-  # has_attached_file :image,
-  #   styles: { medium: "200x200>", thumb: "50x50>" },
-  #   default_url: 'sway.jpg'
-  # validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  before_save :set_default_image!
+
+  private
+
+  def set_default_image!
+    if self.image.attachment.nil?
+      self.image.attach(io: File.open('app/assets/image/sway.jpg'), filename: 'default-image.jpg')
+    end
+  end
 end
