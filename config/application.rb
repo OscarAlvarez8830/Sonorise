@@ -23,7 +23,5 @@ module Sonorise
         :s3_region => ENV["s3_region"]
       }
     }
-
-    config.active_storage.service = :amazon
   end
 end

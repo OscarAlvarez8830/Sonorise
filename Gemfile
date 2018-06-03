@@ -34,6 +34,7 @@ gem 'jquery-rails'
 gem 'aws-sdk-s3'
 gem 'figaro'
 gem 'font-awesome-sass', '~> 5.0.9'
+gem 'ez_download'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
