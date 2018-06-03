@@ -26,7 +26,7 @@ class Playlist < ApplicationRecord
 
   def set_default_image!
     if self.image.attachment.nil?
-      self.image.attach(io: File.open('app/assets/image/sway.jpg'), filename: 'default-image.jpg')
+      self.image.attach(io: File.open('app/assets/images/sway.jpg'), filename: 'default-image.jpg')
     end
   end
 end
