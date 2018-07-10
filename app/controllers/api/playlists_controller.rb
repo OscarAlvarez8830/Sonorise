@@ -1,4 +1,8 @@
 class Api::PlaylistsController < ApplicationController
+  def index
+    @playlists = Playlist.where(user_id: nil).limit(4)
+  end
+
   def create
     @playlist = current_user.playlists.new(playlist_params)
 
