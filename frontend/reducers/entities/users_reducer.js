@@ -12,9 +12,11 @@ export default (state = {}, action) => {
       { [action.currentUser.id]: action.currentUser }
     );
   case RECEIVE_PLAYLIST:
-    newState = merge({}, state);
-    newState[action.playlist.userId].playlistIds = action.playlistIds;
-    return newState;
+    if (action.playlist.userId) {
+      newState = merge({}, state);
+      newState[action.playlist.userId].playlistIds = action.playlistIds;
+      return newState;
+    }
   default:
     return state;
   }

@@ -13,7 +13,7 @@ export default combineReducers({
 
 export const { getUserById } = UserSelectors;
 
-export const { getPlaylistById, getPlaylistsByIdArray } = PlaylistSelectors;
+export const { getPlaylistById, getPlaylistsByIdArray, getHomePlaylists } = PlaylistSelectors;
 
 export const { getTracksByIdArray, getTrackById } = TrackSelectors;
 

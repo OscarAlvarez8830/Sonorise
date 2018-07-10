@@ -28,3 +28,7 @@ export const getPlaylistsByIdArray = (state, ids) => {
 export const getPlaylistById = (state, id) => {
   return state.entities.playlists[id];
 };
+
+export const getHomePlaylists = state => {
+  return Object.values(state.entities.playlists).filter(playlist => !playlist.userId);
+};

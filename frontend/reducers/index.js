@@ -11,10 +11,10 @@ export default combineReducers({
 
 export const {
   getErrors,
-   getModal,
-   getCurrentTrack,
-   getPlayingState,
-   getSearchResults,
+  getModal,
+  getCurrentTrack,
+  getPlayingState,
+  getSearchResults,
  } = UISelectors;
 
 export const { getCurrentUser } = SessionSelectors;
@@ -23,6 +23,7 @@ export const {
   getUserById,
   getPlaylistById,
   getPlaylistsByIdArray,
+  getHomePlaylists,
   getTrackById,
   getTracksByIdArray,
   getArtistById,
